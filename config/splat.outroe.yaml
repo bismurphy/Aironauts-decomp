@@ -5,7 +5,7 @@ options:
   basename: outroe
   base_path: ..
   build_path: build
-  target_path: EXTRACTED/outroe.exe
+  target_path: EXTRACTED/OUTROE.EXE
   asm_path: asm/outroe
   src_path: src/outroe
   ld_script_path: build/outroe.ld

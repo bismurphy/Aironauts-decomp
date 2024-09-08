@@ -81,7 +81,10 @@ $(BUILD_DIR)/%.c.o: %.c $(MASPSX_APP) $(CC1PSX)
 $(BUILD_DIR)/%.ld: $(CONFIG_DIR)/splat.%.yaml 
 	$(SPLAT) $<
 
-extract_disk:
+tools/mkpsxiso/build/dumpsxiso:
+	cd tools/mkpsxiso && git submodule update --init --recursive && cmake -S . --preset release && cmake --build ./build --config Release
+
+extract_disk: tools/mkpsxiso/build/dumpsxiso
 	mkdir -p EXTRACTED
 	cd Game && ../tools/mkpsxiso/build/dumpsxiso Aironauts\ \(Europe\)\ \(En\,Fr\,De\).cue -x ../EXTRACTED
 
