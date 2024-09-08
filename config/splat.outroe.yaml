@@ -62,7 +62,9 @@ segments:
       - [0x1A5290, c]
       - [0x1A7210, c]
       - [0x1A7588, c]
-      - {start: 0x1AC9C4, type: data, linker_section_order: asm} # 2 words of garbage
+      - {start: 0x1AC9C4, type: data, linker_section_order: c} # 2 words of garbage
       - [0x1AC9CC, c]
+      - [0x1B2334, asm]
+      - [0x1BB640, c]
       - [0x1CF730, bss]
   - [0x1CF800]
