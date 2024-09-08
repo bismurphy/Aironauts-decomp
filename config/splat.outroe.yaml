@@ -38,9 +38,9 @@ options:
   data_string_guesser_level: 2
   section_order:
   
-    - ".data"
     - ".rodata"
     - ".text"
+    - ".data"
     - ".bss"
     - ".sbss"
 segments:
@@ -64,7 +64,10 @@ segments:
       - [0x1A7588, c]
       - {start: 0x1AC9C4, type: data, linker_section_order: c} # 2 words of garbage
       - [0x1AC9CC, c]
+      - {start: 0x1AD464, type: data, linker_section_order: c} # 2 more words of garbage
+      - [0x1AD46C, c]
       - [0x1B2334, asm]
       - [0x1BB640, c]
+      - [0x1BB6E0, data] # real data
       - [0x1CF730, bss]
   - [0x1CF800]
