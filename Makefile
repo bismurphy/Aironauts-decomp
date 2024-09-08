@@ -29,7 +29,7 @@ LD_FLAGS        := -nostdlib --no-check-sections
 PYTHON          := python3
 MASPSX_DIR      := $(TOOLS_DIR)/maspsx
 MASPSX_APP      := $(MASPSX_DIR)/maspsx.py
-MASPSX          := $(PYTHON) $(MASPSX_APP) --expand-div --aspsx-version=2.34
+MASPSX          := $(PYTHON) $(MASPSX_APP) --expand-div --aspsx-version=2.81
 
 PSX_BASE_SYMS	:= $(CONFIG_DIR)/symbols.txt
 
