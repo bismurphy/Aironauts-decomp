@@ -1,4 +1,4 @@
-Game
-EXTRACTED
-build
-asm
+Game/*
+EXTRACTED/*
+build/*
+asm/*
