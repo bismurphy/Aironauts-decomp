@@ -1,5 +1,7 @@
 A very early-stage decompilation for the 1999 Playstation game Aironauts (PAL-only). This only includes the OUTROE.exe executable, and may never include any other part of the game.
 
+Most of the build process is inherited from `sotn-decomp`. Thank you to that team :)
+
 
 Setup process:
 
