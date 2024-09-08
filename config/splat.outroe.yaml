@@ -60,9 +60,9 @@ segments:
       - [0xAF28C, rodata, AF28C] # estimated
       - [0xAF67C, rodata, AF67C] # estimated
       - [0x1A5290, c]
-      - [0x1A7210, asm]
-      - [0x1A7588, asm]
-      - {start: 0x1AC9C4, type: data, linker_section_order: asm}
-      - [0x1AC9CC, asm]
+      - [0x1A7210, c]
+      - [0x1A7588, c]
+      - {start: 0x1AC9C4, type: data, linker_section_order: asm} # 2 words of garbage
+      - [0x1AC9CC, c]
       - [0x1CF730, bss]
   - [0x1CF800]
