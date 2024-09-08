@@ -4,6 +4,8 @@ Research so far that narrows it down:
 
 func_801B9E9C: https://decomp.me/scratch/thslQ
 
+Compiling is always -O2. Beyond that:
+
 GCC 2.7.2.2 is nonmatching.
 GCC 2.7.2.3 is nonmatching.
 

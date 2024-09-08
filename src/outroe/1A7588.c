@@ -1,4 +1,4 @@
-#include "common.h"
+#include "outroe.h"
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B7588);
 
@@ -110,7 +110,10 @@ INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B9D74);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B9E04);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B9E9C);
+void func_801B9E9C(s16* arg0, s32 arg1) {
+    func_801B9C58("LoadImage", arg0);
+    D_801CC4E4.unk0[2](D_801CC4E4.unk0[8], arg0, 8, arg1);
+}
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B9EFC);
 

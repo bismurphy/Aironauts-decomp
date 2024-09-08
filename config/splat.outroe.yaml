@@ -30,7 +30,7 @@ options:
   # create_asm_dependencies: True
   extensions_path: tools/splat_ext
 
-  subalign: 2
+  subalign: 4
 
   string_encoding: ASCII
   data_string_encoding: ASCII
@@ -57,8 +57,10 @@ segments:
     # bss_size: Please fill out this value when you figure out the bss size
     subsegments:
       - [0x800, rodata, 800]
-      - [0xAF28C, rodata, AF28C] # estimated
-      - [0xAF67C, rodata, AF67C] # estimated
+      - [0xAF28C, rodata]
+      - [0xAF67C, rodata]
+      - [0x1A4A6C, .rodata, 1A7588]
+      - [0x1A4A78, rodata]
       - [0x1A5290, c]
       - [0x1A7210, c]
       - [0x1A7588, c]

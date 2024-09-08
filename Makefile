@@ -16,7 +16,7 @@ CPP             := $(CROSS)cpp
 CPP_FLAGS       += -Iinclude -undef -Wall -fno-builtin
 CPP_FLAGS       += -Dmips -D__GNUC__=2 -D__OPTIMIZE__ -D__mips__ -D__mips -Dpsx -D__psx__ -D__psx -D_PSYQ -D__EXTENSIONS__ -D_MIPSEL -D_LANGUAGE_C -DLANGUAGE_C -DNO_LOGS -DHACKS -DUSE_INCLUDE_ASM
 
-CC1PSX          := ./bin/cc1-psx-26
+CC1PSX          := ./bin/cc1-gcc2.8.1-psx
 CC              := $(CC1PSX)
 CC_FLAGS        += -G0 -w -O2 -funsigned-char -fpeephole -ffunction-cse -fpcc-struct-return -fcommon -fverbose-asm -msoft-float -g
 PSXCC_FLAGS     := -quiet -mcpu=3000 -fgnu-linker -mgas -gcoff
@@ -91,9 +91,13 @@ extract_disk: tools/mkpsxiso/build/dumpsxiso
 extract: $(addprefix $(BUILD_DIR)/,$(addsuffix .ld,$(TARGETS)))
 	$(info Extraction Complete.)
 
+
 clean:
 	rm -rf asm
 	rm -rf build
+
+deepclean: clean
+	rm -rf expected
 
 all: build check
 
@@ -101,6 +105,11 @@ build: outroe
 
 check: config/checksums.sha
 	sha1sum --check $<
+
+init: deepclean extract build check
+	mkdir -p expected/build
+	cp -r build expected
+
 
 debug:
 	$(info ASM_DIR: $(ASM_DIR))
