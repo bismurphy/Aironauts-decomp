@@ -1,0 +1,63 @@
+name: outroe.exe
+sha1: 0fb2140bcc574b42ce63c8461dcc98fec5f1db47
+options:
+  platform: psx
+  basename: outroe
+  base_path: ..
+  build_path: build
+  target_path: EXTRACTED/outroe.exe
+  asm_path: asm/outroe
+  src_path: src/outroe
+  ld_script_path: build/outroe.ld
+  compiler: GCC 
+  symbol_addrs_path:
+    - outroe.symbols.txt
+  undefined_funcs_auto_path: config/undefined_funcs_auto.outroe.txt
+  undefined_syms_auto_path: config/undefined_syms_auto.outroe.txt
+
+  find_file_boundaries: False
+  use_legacy_include_asm: False
+  gp_value: 0x801EF72C
+
+  asm_function_macro: glabel
+  asm_jtbl_label_macro: jlabel
+  asm_data_macro: dlabel
+
+  section_order: [".rodata", ".text", ".data", ".bss"]
+  # auto_all_sections: [".data", ".rodata", ".bss"]
+  reloc_addrs_path:
+    - reloc_addrs.txt
+  # create_asm_dependencies: True
+  extensions_path: tools/splat_ext
+
+  subalign: 2
+
+  string_encoding: ASCII
+  data_string_encoding: ASCII
+  rodata_string_guesser_level: 2
+  data_string_guesser_level: 2
+  section_order:
+  
+    - ".data"
+    - ".rodata"
+    - ".text"
+    - ".bss"
+    - ".sbss"
+segments:
+  - name: main
+    type: code
+    start: 0x0
+    vram: 0x80010000
+    # bss_size: Please fill out this value when you figure out the bss size
+    subsegments:
+      - [0x0, header]
+      - [0x800, rodata, 800]
+      - [0xAF28C, rodata, AF28C] # estimated
+      - [0xAF67C, rodata, AF67C] # estimated
+      - [0x1A5290, asm]
+      - [0x1A7210, asm]
+      - [0x1A7588, asm]
+      - {start: 0x1AC9C4, type: data, linker_section_order: asm}
+      - [0x1AC9CC, asm]
+      - [0x1CF730, bss]
+  - [0x1CF800]

@@ -1,0 +1,15 @@
+Compiler is currently unknown; we will need to try different ones.
+
+Research so far that narrows it down:
+
+func_801B9E9C: https://decomp.me/scratch/thslQ
+
+GCC 2.7.2.2 is nonmatching.
+GCC 2.7.2.3 is nonmatching.
+
+GCC 2.8.0 matches.
+GCC 2.8.1 matches.
+GCC 2.8.1-psx matches.
+
+GCC 2.91.66 is nonmatching.
+GCC 2.95.2 is nonmatching.

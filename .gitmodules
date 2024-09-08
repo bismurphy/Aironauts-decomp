@@ -1,0 +1,6 @@
+[submodule "maspsx"]
+	path = maspsx
+	url = git@github.com:mkst/maspsx.git
+[submodule "tools/maspsx"]
+	path = tools/maspsx
+	url = git@github.com:mkst/maspsx.git
