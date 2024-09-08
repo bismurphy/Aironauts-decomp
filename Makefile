@@ -66,7 +66,7 @@ outroe: $(BUILD_DIR)/outroe.exe
 $(BUILD_DIR)/outroe.exe: $(BUILD_DIR)/outroe.elf
 	$(OBJCOPY) -O binary $< $@
 
-.SECONDEXPANSION:
+.SECONDEXPANSION: # need second expansion to allow wildcard prereq in "call"
 $(BUILD_DIR)/%.elf: $$(call list_o_files,%)
 	$(call link,$*,$@)
 
@@ -109,6 +109,7 @@ debug:
 	$(info src has $(call list_src_files,outroe))
 	$(info Moving to O files next.)
 	$(info o files are $(call list_o_files,outroe))
+	$(info c compilation needs: $(MASPSX_APP) $(CC1PSX))
 
 
 .PHONY: extract
