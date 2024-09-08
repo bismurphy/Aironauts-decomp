@@ -44,13 +44,18 @@ options:
     - ".bss"
     - ".sbss"
 segments:
-  - name: main
-    type: code
+  - name: hdr
+    type: header
     start: 0x0
     vram: 0x80010000
-    # bss_size: Please fill out this value when you figure out the bss size
     subsegments:
       - [0x0, header]
+  - name: main
+    type: code
+    start: 0x800
+    vram: 0x80010800
+    # bss_size: Please fill out this value when you figure out the bss size
+    subsegments:
       - [0x800, rodata, 800]
       - [0xAF28C, rodata, AF28C] # estimated
       - [0xAF67C, rodata, AF67C] # estimated
