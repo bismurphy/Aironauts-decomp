@@ -110,6 +110,7 @@ init: deepclean extract build check
 	mkdir -p expected/build
 	cp -r build expected
 
+refresh: clean extract all
 
 debug:
 	$(info ASM_DIR: $(ASM_DIR))

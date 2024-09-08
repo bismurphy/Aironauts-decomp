@@ -108,7 +108,11 @@ INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B9C58);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B9D74);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B9E04);
+void func_801B9E04(s16* var_s3, u8 var_s2, u8 var_s0, u8 var_s1) {
+    func_801B9C58("ClearImage2", var_s3);
+    D_801CC4E4.unk0[2](D_801CC4E4.unk0[3], var_s3, 8, 0x80000000 | var_s1 << 16 |  var_s0 << 8 | var_s2);
+}
+
 
 void func_801B9E9C(s16* arg0, s32 arg1) {
     func_801B9C58("LoadImage", arg0);
