@@ -78,6 +78,9 @@ $(BUILD_DIR)/%.c.o: %.c $(MENOSPSX_APP) $(CC1PSX)
 	mkdir -p $(dir $@)
 	$(CPP) $(CPP_FLAGS) -lang-c $< | $(CC) $(CC_FLAGS) $(PSXCC_FLAGS) | $(MENOSPSX) | $(AS) $(AS_FLAGS) -o $@
 
+# putting this in causes make to not delete the intermediate .o files.
+SECONDARY: $(call list_o_files,outroe)
+
 $(BUILD_DIR)/%.ld: $(CONFIG_DIR)/splat.%.yaml 
 	$(SPLAT) $<
 
