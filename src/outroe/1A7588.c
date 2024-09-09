@@ -102,11 +102,11 @@ INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B9AF8);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B9B58);
 
-void func_801B9BF0(s32 arg0) {
+void func_801B9BF0(s32 arg0) { 
     if (D_801CC4EE.unk0 >= 2) {
         Some_PrintF("DrawSync(%d)...\n", arg0);
     }
-    D_801CC4E4.unk0[15](arg0);
+    D_801CC4E4.o->func15(arg0);
 }
 
 void func_801B9C58(char* arg0, s16* arg1) { 
@@ -132,25 +132,39 @@ void func_801B9C58(char* arg0, s16* arg1) {
 
 void func_801B9D74(s16* arg0, u8 arg1, u8 arg2, u8 arg3) {
     func_801B9C58("ClearImage", arg0);
-    D_801CC4E4.unk0[2](D_801CC4E4.unk0[3], arg0, 8, arg3 << 16 |  arg2 << 8 | arg1);
+    D_801CC4E4.o->func2(D_801CC4E4.o->func3, arg0, 8, arg3 << 16 |  arg2 << 8 | arg1);
 }
 
 void func_801B9E04(s16* arg0, u8 arg1, u8 arg2, u8 arg3) {
     func_801B9C58("ClearImage2", arg0);
-    D_801CC4E4.unk0[2](D_801CC4E4.unk0[3], arg0, 8, 0x80000000 | arg3 << 16 |  arg2 << 8 | arg1);
+    D_801CC4E4.o->func2(D_801CC4E4.o->func3, arg0, 8, 0x80000000 | arg3 << 16 |  arg2 << 8 | arg1);
 }
 
-void func_801B9E9C(s16* arg0, s32 arg1) {
+void func_801B9E9C(s16* arg0, s32 arg1) { 
     func_801B9C58("LoadImage", arg0);
-    D_801CC4E4.unk0[2](D_801CC4E4.unk0[8], arg0, 8, arg1);
+    D_801CC4E4.o->func2(D_801CC4E4.o->func8, arg0, 8, arg1);
 }
 
-void func_801B9EFC(s16* arg0, s32 arg1) {
+void func_801B9EFC(s16* arg0, s32 arg1) { 
     func_801B9C58(&D_801B4A78, arg0); // Can't pull this into rodata yet; used by func_801BC504.
-    D_801CC4E4.unk0[2](D_801CC4E4.unk0[7], arg0, 8, arg1);
+    D_801CC4E4.o->func2(D_801CC4E4.o->func7, arg0, 8, arg1);
 }
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B9F5C);
+s32 func_801B9F5C(Rectangle* arg0, s32 arg1, s32 arg2) { 
+    Overlay* ovr;
+    s32* thing2;
+
+    func_801B9C58(&D_801B4A84, arg0); //"MoveImage"
+    if (arg0->coord3 == 0 || arg0->coord4 == 0) {
+        return -1; 
+    }
+    thing2 = (s32*)&arg0->coord3;
+    ovr = *(&D_801CC4E4.o);
+    D_801CC58C[0] = LOW(arg0->coord1);
+    D_801CC58C[1] = ((arg2 << 0x10) | (arg1 & 0xFFFF));
+    D_801CC58C[2] = *thing2;
+    return ovr->func2(ovr->func6, &D_801CC58C[-2], 0x14, 0);
+}
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BA014);
 
