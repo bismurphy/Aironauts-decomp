@@ -31,6 +31,10 @@ MASPSX_DIR      := $(TOOLS_DIR)/maspsx
 MASPSX_APP      := $(MASPSX_DIR)/maspsx.py
 MASPSX          := $(PYTHON) $(MASPSX_APP) --expand-div --aspsx-version=2.81
 
+MENOSPSX_DIR      := $(TOOLS_DIR)/menospsx
+MENOSPSX_APP      := $(MENOSPSX_DIR)/menospsx.py
+MENOSPSX          := $(PYTHON) $(MENOSPSX_APP) --expand-div --aspsx-version=2.81
+
 PSX_BASE_SYMS	:= $(CONFIG_DIR)/symbols.txt
 
 SPLAT           := splat split
@@ -76,7 +80,7 @@ $(BUILD_DIR)/%.s.o: %.s
 
 $(BUILD_DIR)/%.c.o: %.c $(MASPSX_APP) $(CC1PSX)
 	mkdir -p $(dir $@)
-	$(CPP) $(CPP_FLAGS) -lang-c $< | $(CC) $(CC_FLAGS) $(PSXCC_FLAGS) | $(MASPSX) | $(AS) $(AS_FLAGS) -o $@
+	$(CPP) $(CPP_FLAGS) -lang-c $< | $(CC) $(CC_FLAGS) $(PSXCC_FLAGS) | $(MENOSPSX) | $(AS) $(AS_FLAGS) -o $@
 
 $(BUILD_DIR)/%.ld: $(CONFIG_DIR)/splat.%.yaml 
 	$(SPLAT) $<
