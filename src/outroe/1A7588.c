@@ -244,7 +244,7 @@ INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BC734);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BC830);
 
-void func_801BC858(s8* byteArray, s8 value, s32 count) {
+void fillArrayWithValue(s8* byteArray, s8 value, s32 count) {
     s32 remainingCount;
     for(remainingCount = count - 1; remainingCount != -1; remainingCount--){
         *byteArray++ = value;
