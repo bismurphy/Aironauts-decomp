@@ -2,13 +2,11 @@
 
 typedef struct{
     void (**unk0)();
-    s32 unk4;
-    void (*AllocPrimitives)(s32* somePtr, s32 count);
 } unkStr_D_801CC4E4;
 
 extern unkStr_D_801CC4E4 D_801CC4E4;
 
-extern void (*Some_PrintF)(char* somePtr,  ...);
+extern s32 (*Some_PrintF)(char* somePtr,  ...);
 
 
 typedef struct{
@@ -19,3 +17,6 @@ typedef struct{
 } unk801CC4EE;
 
 extern unk801CC4EE D_801CC4EE;
+
+
+extern char* D_801B4A78;

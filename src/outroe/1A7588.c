@@ -104,7 +104,26 @@ INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B9B58);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B9BF0);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B9C58);
+void func_801B9C58(char* arg0, s16* arg1) { 
+    switch (D_801CC4EE.unk0) {
+    case 1:
+        if ((arg1[2] > D_801CC4EE.unk2) || 
+            (arg1[2] + arg1[0] > D_801CC4EE.unk2) || 
+            (arg1[1] > D_801CC4EE.unk4) || 
+            (arg1[1] + arg1[3] > D_801CC4EE.unk4) || 
+            (arg1[2] <= 0) || 
+            (arg1[0] < 0) || 
+            (arg1[1] < 0) || 
+            (arg1[3] <= 0)) {
+            Some_PrintF("%s:bad RECT", arg0);
+            Some_PrintF("(%d,%d)-(%d,%d)\n", arg1[0],arg1[1],arg1[2],arg1[3]);
+        }
+        break;
+    case 2:
+        Some_PrintF("%s:", arg0);
+        Some_PrintF("(%d,%d)-(%d,%d)\n", arg1[0],arg1[1],arg1[2],arg1[3]);
+    }
+}
 
 void func_801B9D74(s16* arg0, u8 arg1, u8 arg2, u8 arg3) {
     func_801B9C58("ClearImage", arg0);

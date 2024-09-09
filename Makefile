@@ -10,7 +10,7 @@ CONFIG_DIR      := config
 CROSS           := mipsel-linux-gnu-
 OBJCOPY         := $(CROSS)objcopy
 AS              := $(CROSS)as
-AS_FLAGS        += -Iinclude -march=r3000 -mtune=r3000 -no-pad-sections -O1 -G0
+AS_FLAGS        += -Iinclude -march=r3000 -mtune=r3000 -no-pad-sections -O2 -G0
 
 CPP             := $(CROSS)cpp
 CPP_FLAGS       += -Iinclude -undef -Wall -fno-builtin
