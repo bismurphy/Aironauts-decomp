@@ -145,7 +145,10 @@ void func_801B9E9C(s16* arg0, s32 arg1) {
     D_801CC4E4.unk0[2](D_801CC4E4.unk0[8], arg0, 8, arg1);
 }
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B9EFC);
+void func_801B9EFC(s16* arg0, s32 arg1) {
+    func_801B9C58(&D_801B4A78, arg0); // Can't pull this into rodata yet; used by func_801BC504.
+    D_801CC4E4.unk0[2](D_801CC4E4.unk0[7], arg0, 8, arg1);
+}
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B9F5C);
 
@@ -242,19 +245,3 @@ INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BC734);
 INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BC830);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BC858);
-
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BC884);
-
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BC894);
-
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BC8D4);
-
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BC8F4);
-
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BC934);
-
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BC954);
-
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BC984);
-
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BC9A4);
