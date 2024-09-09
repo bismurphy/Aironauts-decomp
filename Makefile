@@ -27,10 +27,6 @@ LD_FLAGS        := -nostdlib --no-check-sections
 
 
 PYTHON          := python3
-MASPSX_DIR      := $(TOOLS_DIR)/maspsx
-MASPSX_APP      := $(MASPSX_DIR)/maspsx.py
-MASPSX          := $(PYTHON) $(MASPSX_APP) --expand-div --aspsx-version=2.81
-
 MENOSPSX_DIR      := $(TOOLS_DIR)/menospsx
 MENOSPSX_APP      := $(MENOSPSX_DIR)/menospsx.py
 MENOSPSX          := $(PYTHON) $(MENOSPSX_APP) --expand-div --aspsx-version=2.81
@@ -78,7 +74,7 @@ $(BUILD_DIR)/%.s.o: %.s
 	mkdir -p $(dir $@)
 	$(AS) $(AS_FLAGS) -o $@ $<
 
-$(BUILD_DIR)/%.c.o: %.c $(MASPSX_APP) $(CC1PSX)
+$(BUILD_DIR)/%.c.o: %.c $(MENOSPSX_APP) $(CC1PSX)
 	mkdir -p $(dir $@)
 	$(CPP) $(CPP_FLAGS) -lang-c $< | $(CC) $(CC_FLAGS) $(PSXCC_FLAGS) | $(MENOSPSX) | $(AS) $(AS_FLAGS) -o $@
 
@@ -94,7 +90,6 @@ extract_disk: tools/mkpsxiso/build/dumpsxiso
 
 extract: $(addprefix $(BUILD_DIR)/,$(addsuffix .ld,$(TARGETS)))
 	$(info Extraction Complete.)
-
 
 clean:
 	rm -rf asm
@@ -115,15 +110,5 @@ init: deepclean extract build check
 	cp -r build expected
 
 refresh: clean extract all
-
-debug:
-	$(info ASM_DIR: $(ASM_DIR))
-	$(info BIN_DIR: $(BIN_DIR))
-	$(info SRC_DIR: $(SRC_DIR))
-	$(info src has $(call list_src_files,outroe))
-	$(info Moving to O files next.)
-	$(info o files are $(call list_o_files,outroe))
-	$(info c compilation needs: $(MASPSX_APP) $(CC1PSX))
-
 
 .PHONY: extract

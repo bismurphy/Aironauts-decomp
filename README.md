@@ -6,7 +6,7 @@ Most of the build process is inherited from `sotn-decomp`. Thank you to that tea
 Setup process:
 
 1) Clone this repo, and then cd into it.
-2) Run `git submodule update --init --recursive` to populate the submodules used as tools (currently just maspsx).
+2) Run `git submodule update --init --recursive` to populate the submodules used as tools (actually maybe not needed).
 3) cd into the "tools" directory, and clone this repo: git@github.com:N4gtan/mkpsxiso.git. Then, cd into `mkpsxiso`, and do `git checkout cue`.
 - This is necessary because mkpsxiso does not natively support Cue files; N4gtan's version does (and is currently a PR into the main software), so we use theirs while we wait for the PR to be merged).
 3) Take your copy of Aironauts, and put it in the Game directory. There should be a Cue file and four Bin files.
