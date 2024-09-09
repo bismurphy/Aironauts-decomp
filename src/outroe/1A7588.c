@@ -102,7 +102,12 @@ INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B9AF8);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B9B58);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B9BF0);
+void func_801B9BF0(s32 arg0) {
+    if (D_801CC4EE.unk0 >= 2) {
+        Some_PrintF("DrawSync(%d)...\n", arg0);
+    }
+    D_801CC4E4.unk0[15](arg0);
+}
 
 void func_801B9C58(char* arg0, s16* arg1) { 
     switch (D_801CC4EE.unk0) {

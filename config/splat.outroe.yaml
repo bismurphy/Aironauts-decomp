@@ -59,7 +59,7 @@ segments:
       - [0x800, rodata, 800]
       - [0xAF28C, rodata]
       - [0xAF67C, rodata]
-      - [0x1A4A30, .rodata, 1A7588]
+      - [0x1A4A1C, .rodata, 1A7588]
       - [0x1A4A78, rodata]
       - [0x1A5290, c]
       - [0x1A7210, c]
