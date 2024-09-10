@@ -120,7 +120,16 @@ INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B9A44);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B9AE8);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B9AF8);
+void* func_801B9AF8(void (*func)()) {
+    s32 temp_v0;
+
+    if (D_801CC4EC.unk2 >= 2) {
+        GPU_printf("DrawSyncCallback(%08x)...\n", func);
+    }
+    temp_v0 = D_801CC4EC.unkC;
+    D_801CC4EC.unkC = func;
+    return temp_v0;
+}
 
 
 void SetDispMask(s32 mask) {
