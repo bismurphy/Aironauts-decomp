@@ -166,7 +166,26 @@ s32 func_801B9F5C(Rectangle* arg0, s32 arg1, s32 arg2) {
     return ovr->func2(ovr->func6, &D_801CC58C[-2], 0x14, 0);
 }
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BA014);
+extern s8 D_801B4A90;
+extern s32 D_801CC598;
+extern s32 D_801CC5AC;
+
+OT_TYPE* ClearOTag(OT_TYPE* ot, s32 n) {
+    s32* target;
+
+    if (D_801CC4EE.unk0 >= 2) { 
+        Some_PrintF(&D_801B4A90, ot, n); //"ClearOTag(%08x,%d)...\n"
+    }
+    for(n--; n != 0; n--, ot++) {
+        setlen(ot, 0);
+        setaddr(ot, ot + 1);
+    }
+    target = &D_801CC5AC;
+    *target = ((s32) &D_801CC598  & 0xFFFFFF) | 0x04000000;
+    LOW(target) &= 0xFFFFFF;
+    *ot = target;
+    return ot;
+}
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BA0DC);
 

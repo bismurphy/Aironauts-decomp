@@ -1,2 +1,3 @@
+ClearOTag = 0x801BA014;
 fillArrayWithValue = 0x801BC858;
 Some_PrintF = 0x801CC4E8;

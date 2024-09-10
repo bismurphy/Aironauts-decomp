@@ -1,4 +1,7 @@
 #include "common.h"
+#include <psxsdk/libgpu.h>
+
+
 
 typedef struct {
     void (*func0)(s32, ...);
