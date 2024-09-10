@@ -15,3 +15,7 @@ GCC 2.8.1-psx matches.
 
 GCC 2.91.66 is nonmatching.
 GCC 2.95.2 is nonmatching.
+
+Conflict: func_801BCE04 https://decomp.me/scratch/alyDJ
+
+Matches with 2.6.* and 2.7.*, but not 2.5 or 2.8.
