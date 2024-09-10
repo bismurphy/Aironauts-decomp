@@ -225,7 +225,20 @@ OT_TYPE* ClearOTagR(OT_TYPE* ot, int arg1) {
     return ot;
 }
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BA188);
+struct Temp {
+    s16 unk0;
+    u8 unk2;
+    u8 unk3;
+};
+
+
+void func_801BA188(struct Temp* arg0) {
+    s32 temp_s1;
+
+    temp_s1 = arg0->unk3;
+    g_GPU->sync(0);
+    g_GPU->cwb(arg0 + 1, temp_s1);
+}
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BA1E4);
 
