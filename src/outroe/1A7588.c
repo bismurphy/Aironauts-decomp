@@ -280,35 +280,35 @@ INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BB0D0);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BB0EC);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BB16C);
+INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", _status);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BB184);
+INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", _otc);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BB264);
+INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", _clr);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BB494);
+INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", _dws);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BB6D0);
+INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", _drs);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BB950);
+INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", _ctl);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BB974);
+INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", _getctl);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BB988);
+INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", _cwb);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BB9C8);
+INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", _cwc);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BBA10);
+INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", _param);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BBA40);
+INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", _addque);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BBA64);
+INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", _addque2);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BBD14);
+INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", _exeque);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BBF74);
+INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", _reset);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BC0C4);
+INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", _sync);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BC200);
 
