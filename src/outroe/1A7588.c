@@ -104,7 +104,7 @@ INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B9B58);
 
 void func_801B9BF0(s32 arg0) { 
     if (D_801CC4EE.unk0 >= 2) {
-        Some_PrintF("DrawSync(%d)...\n", arg0);
+        GPU_printf("DrawSync(%d)...\n", arg0);
     }
     D_801CC4E4.o->func15(arg0);
 }
@@ -120,13 +120,13 @@ void func_801B9C58(char* arg0, s16* arg1) {
             (arg1[0] < 0) || 
             (arg1[1] < 0) || 
             (arg1[3] <= 0)) {
-            Some_PrintF("%s:bad RECT", arg0);
-            Some_PrintF("(%d,%d)-(%d,%d)\n", arg1[0],arg1[1],arg1[2],arg1[3]);
+            GPU_printf("%s:bad RECT", arg0);
+            GPU_printf("(%d,%d)-(%d,%d)\n", arg1[0],arg1[1],arg1[2],arg1[3]);
         }
         break;
     case 2:
-        Some_PrintF("%s:", arg0);
-        Some_PrintF("(%d,%d)-(%d,%d)\n", arg1[0],arg1[1],arg1[2],arg1[3]);
+        GPU_printf("%s:", arg0);
+        GPU_printf("(%d,%d)-(%d,%d)\n", arg1[0],arg1[1],arg1[2],arg1[3]);
     }
 }
 
@@ -174,7 +174,7 @@ OT_TYPE* ClearOTag(OT_TYPE* ot, s32 n) {
     s32* target;
 
     if (D_801CC4EE.unk0 >= 2) { 
-        Some_PrintF(&D_801B4A90, ot, n); //"ClearOTag(%08x,%d)...\n"
+        GPU_printf(&D_801B4A90, ot, n); //"ClearOTag(%08x,%d)...\n"
     }
     for(n--; n != 0; n--, ot++) {
         setlen(ot, 0);

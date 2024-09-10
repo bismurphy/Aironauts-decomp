@@ -28,7 +28,7 @@ typedef struct{
 
 extern unkStr_D_801CC4E4 D_801CC4E4;
 
-extern s32 (*Some_PrintF)(char* somePtr,  ...);
+extern s32 (*GPU_printf)(char* somePtr,  ...);
 
 
 typedef struct{
