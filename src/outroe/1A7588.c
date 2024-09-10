@@ -122,16 +122,24 @@ INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B9AE8);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B9AF8);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B9B58);
+void SetDispMask(s32 mask) {
+    if (D_801CC4EE.unk0 >= 2) {
+        GPU_printf("SetDispMask(%d)...\n", mask);
+    }
+    if (mask == 0) {
+        fillArrayWithValue(&D_801CC4EE.unk6A, -1, 0x14);
+    }
+    g_GPU->ctl(mask ? 0x03000000 : 0x03000001);
+}
 
-void func_801B9BF0(s32 arg0) { 
+void DrawSync(s32 arg0) { 
     if (D_801CC4EE.unk0 >= 2) {
         GPU_printf("DrawSync(%d)...\n", arg0);
     }
     g_GPU->sync(arg0);
 }
 
-void func_801B9C58(char* arg0, s16* arg1) { 
+void checkRECT(char* arg0, s16* arg1) { 
     switch (D_801CC4EE.unk0) {
     case 1:
         if ((arg1[2] > D_801CC4EE.unk2) || 
@@ -153,22 +161,22 @@ void func_801B9C58(char* arg0, s16* arg1) {
 }
 
 void func_801B9D74(s16* arg0, u8 arg1, u8 arg2, u8 arg3) {
-    func_801B9C58("ClearImage", arg0);
+    checkRECT("ClearImage", arg0);
     g_GPU->addque2(g_GPU->clr, arg0, 8, arg3 << 16 |  arg2 << 8 | arg1);
 }
 
 void func_801B9E04(s16* arg0, u8 arg1, u8 arg2, u8 arg3) {
-    func_801B9C58("ClearImage2", arg0);
+    checkRECT("ClearImage2", arg0);
     g_GPU->addque2(g_GPU->clr, arg0, 8, 0x80000000 | arg3 << 16 |  arg2 << 8 | arg1);
 }
 
 void func_801B9E9C(s16* arg0, s32 arg1) { 
-    func_801B9C58("LoadImage", arg0);
+    checkRECT("LoadImage", arg0);
     g_GPU->addque2(g_GPU->dws, arg0, 8, arg1);
 }
 
 void func_801B9EFC(s16* arg0, s32 arg1) { 
-    func_801B9C58(&D_801B4A78, arg0); // Can't pull this into rodata yet; used by func_801BC504.
+    checkRECT(&D_801B4A78, arg0); // Can't pull this into rodata yet; used by func_801BC504.
     g_GPU->addque2(g_GPU->drs, arg0, 8, arg1);
 }
 
@@ -176,7 +184,7 @@ s32 func_801B9F5C(Rectangle* arg0, s32 arg1, s32 arg2) {
     gpu* temp_gpu;
     s32* thing2;
 
-    func_801B9C58(&D_801B4A84, arg0); //"MoveImage"
+    checkRECT(&D_801B4A84, arg0); //"MoveImage"
     if (arg0->coord3 == 0 || arg0->coord4 == 0) {
         return -1; 
     }
