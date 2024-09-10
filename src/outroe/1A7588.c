@@ -122,30 +122,31 @@ INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B9AE8);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B9AF8);
 
+
 void SetDispMask(s32 mask) {
-    if (D_801CC4EE.unk0 >= 2) {
+    if (D_801CC4EC.unk2 >= 2) {
         GPU_printf("SetDispMask(%d)...\n", mask);
     }
     if (mask == 0) {
-        fillArrayWithValue(&D_801CC4EE.unk6A, -1, 0x14);
+        fillArrayWithValue(&D_801CC4EC.unk6A, -1, 0x14);
     }
     g_GPU->ctl(mask ? 0x03000000 : 0x03000001);
 }
 
 void DrawSync(s32 arg0) { 
-    if (D_801CC4EE.unk0 >= 2) {
+    if (D_801CC4EC.unk2 >= 2) {
         GPU_printf("DrawSync(%d)...\n", arg0);
     }
     g_GPU->sync(arg0);
 }
 
 void checkRECT(char* arg0, s16* arg1) { 
-    switch (D_801CC4EE.unk0) {
+    switch (D_801CC4EC.unk2) {
     case 1:
-        if ((arg1[2] > D_801CC4EE.unk2) || 
-            (arg1[2] + arg1[0] > D_801CC4EE.unk2) || 
-            (arg1[1] > D_801CC4EE.unk4) || 
-            (arg1[1] + arg1[3] > D_801CC4EE.unk4) || 
+        if ((arg1[2] > D_801CC4EC.unk4) || 
+            (arg1[2] + arg1[0] > D_801CC4EC.unk4) || 
+            (arg1[1] > D_801CC4EC.unk6) || 
+            (arg1[1] + arg1[3] > D_801CC4EC.unk6) || 
             (arg1[2] <= 0) || 
             (arg1[0] < 0) || 
             (arg1[1] < 0) || 
@@ -203,7 +204,7 @@ extern s32 D_801CC5AC;
 OT_TYPE* ClearOTag(OT_TYPE* ot, s32 n) {
     s32* target;
 
-    if (D_801CC4EE.unk0 >= 2) { 
+    if (D_801CC4EC.unk2 >= 2) { 
         GPU_printf(&D_801B4A90, ot, n); //"ClearOTag(%08x,%d)...\n"
     }
     for(n--; n != 0; n--, ot++) {
@@ -222,7 +223,7 @@ extern s8 D_801B4AA8;
 OT_TYPE* ClearOTagR(OT_TYPE* ot, int arg1) {
     s32* target;
     
-    if (D_801CC4EE.unk0 >= 2) {
+    if (D_801CC4EC.unk2 >= 2) {
         GPU_printf(&D_801B4AA8, ot, arg1); //"ClearOTagR(%08x,%d)...\n"
     }
     g_GPU->otc(ot, arg1);
@@ -254,7 +255,7 @@ void func_801BA188(struct Temp* arg0) {
 extern s8 D_801B4AC0;
 
 void DrawOTag(OT_TYPE p) {
-    if (D_801CC4EE.unk0 >= 2) {
+    if (D_801CC4EC.unk2 >= 2) {
         GPU_printf(&D_801B4AC0, p); //"DrawOTag(%08x)...\n"
     }
     g_GPU->addque2(g_GPU->cwc, p, 0, 0);
@@ -266,13 +267,13 @@ INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BA1E4);
 extern s8 D_801B4AD4;
 
 DRAWENV* PutDrawEnv(DRAWENV* env) {
-    if (D_801CC4EE.unk0 >= 2) {
+    if (D_801CC4EC.unk2 >= 2) {
         GPU_printf(&D_801B4AD4, env); //"PutDrawEnv(%08x)...\n"
     }
     func_801BAD10(&env->dr_env, env);
     env->dr_env.tag |= 0xFFFFFF;
     g_GPU->addque2(g_GPU->cwc, &env->dr_env, 0x40, 0);
-    func_801C2704(&D_801CC4EE.unkE, env, 0x5C);
+    func_801C2704(&D_801CC4EC.unk10, env, 0x5C);
     return env;
 }
 
@@ -280,13 +281,13 @@ extern s8 D_801B4AEC;
 
 void DrawOTagEnv(s32 arg0, DRAWENV* env) {
 
-    if (D_801CC4EE.unk0 >= 2) {
+    if (D_801CC4EC.unk2 >= 2) {
         GPU_printf(&D_801B4AEC, arg0, env); //"DrawOTagEnv(%08x,&08x)...\n"
     }
     func_801BAD10(&env->dr_env, env);
     env->dr_env.tag = (s32) ((env->dr_env.tag & 0xFF000000) | (arg0 & 0xFFFFFF));
     g_GPU->addque2(g_GPU->cwc, &env->dr_env, 0x40, 0);
-    func_801C2704(&D_801CC4EE.unkE, env, 0x5C);
+    func_801C2704(&D_801CC4EC.unk10, env, 0x5C);
 }
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BA3EC);
