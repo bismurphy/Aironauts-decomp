@@ -120,7 +120,7 @@ INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B9A44);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B9AE8);
 
-void* func_801B9AF8(void (*func)()) {
+void* DrawSyncCallback(void (*func)()) {
     s32 temp_v0;
 
     if (D_801CC4EC.unk2 >= 2) {
