@@ -240,7 +240,20 @@ void func_801BA188(struct Temp* arg0) {
     g_GPU->cwb(arg0 + 1, temp_s1);
 }
 
+#ifdef NON_MATCHING
+
+// Nonmatching due to args on addque2.
+extern s8 D_801B4AC0;
+
+void DrawOTag(OT_TYPE p) {
+    if (D_801CC4EE.unk0 >= 2) {
+        GPU_printf(&D_801B4AC0, p); //"DrawOTag(%08x)...\n"
+    }
+    g_GPU->addque2(g_GPU->cwc, p, 0, 0);
+}
+#else
 INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BA1E4);
+#endif
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BA254);
 
