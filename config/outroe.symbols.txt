@@ -1,4 +1,5 @@
 ClearOTag = 0x801BA014;
 ClearOTagR = 0x801BA0DC;
 fillArrayWithValue = 0x801BC858;
+g_GPU = 0x801CC4E4;
 GPU_printf = 0x801CC4E8;

@@ -1,33 +1,6 @@
 #include "common.h"
 #include <psxsdk/libgpu.h>
 
-
-
-typedef struct {
-    void (*func0)(s32, ...);
-    void (*func1)(s32, ...);
-    s32 (*func2)(void(*), ...);
-    void (*func3)(s32, ...);
-    void (*func4)(s32, ...);
-    void (*func5)(s32, ...);
-    void (*func6)(s32, ...);
-    void (*func7)(s32, ...);
-    void (*func8)(s32, ...);
-    void (*func9)(s32, ...);
-    void (*func10)(s32, ...);
-    void (*func11)(s32, ...);
-    void (*func12)(s32, ...);
-    void (*func13)(s32, ...);
-    void (*func14)(s32, ...);
-    void (*func15)(s32, ...);
-} Overlay;
-
-typedef struct{
-    Overlay* o;
-} unkStr_D_801CC4E4;
-
-extern unkStr_D_801CC4E4 D_801CC4E4;
-
 extern s32 (*GPU_printf)(char* somePtr,  ...);
 
 

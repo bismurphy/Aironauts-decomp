@@ -1,5 +1,27 @@
 #include "outroe.h"
 
+typedef struct {
+    /* 0x00 */ u32 unk00;                       // aIdSysCV1831995
+    /* 0x04 */ void (*addque)();                // _addque
+    /* 0x08 */ int (*addque2)();                // _addque2
+    /* 0x0C */ u32 clr;                         // _clr
+    /* 0x10 */ void (*ctl)(int);                // _ctl
+    /* 0x14 */ s32 (*cwb)(s32* arg0, s32 arg1); // _cwb
+    /* 0x18 */ u32 cwc;                         // _cwc
+    /* 0x1C */ u32 drs;                         // _drs
+    /* 0x20 */ u32 dws;                         // _dws
+    /* 0x24 */ u32 unk24;                       // _exeque
+    /* 0x28 */ int (*getctl)(int);              // _getctl
+    /* 0x2C */ void (*otc)(u32* ot, s32 n);     // _otc
+    /* 0x30 */ u32 unk30;                       // _param
+    /* 0x34 */ void (*reset)(int);              // _reset
+    /* 0x38 */ u_long (*status)(void);          // _status
+    /* 0x3C */ void (*sync)(int);               // _sync
+} gpu;                                          // size = 0x40
+
+extern gpu* g_GPU;
+
+
 INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B7588);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B77C0);
@@ -106,7 +128,7 @@ void func_801B9BF0(s32 arg0) {
     if (D_801CC4EE.unk0 >= 2) {
         GPU_printf("DrawSync(%d)...\n", arg0);
     }
-    D_801CC4E4.o->func15(arg0);
+    g_GPU->sync(arg0);
 }
 
 void func_801B9C58(char* arg0, s16* arg1) { 
@@ -132,26 +154,26 @@ void func_801B9C58(char* arg0, s16* arg1) {
 
 void func_801B9D74(s16* arg0, u8 arg1, u8 arg2, u8 arg3) {
     func_801B9C58("ClearImage", arg0);
-    D_801CC4E4.o->func2(D_801CC4E4.o->func3, arg0, 8, arg3 << 16 |  arg2 << 8 | arg1);
+    g_GPU->addque2(g_GPU->clr, arg0, 8, arg3 << 16 |  arg2 << 8 | arg1);
 }
 
 void func_801B9E04(s16* arg0, u8 arg1, u8 arg2, u8 arg3) {
     func_801B9C58("ClearImage2", arg0);
-    D_801CC4E4.o->func2(D_801CC4E4.o->func3, arg0, 8, 0x80000000 | arg3 << 16 |  arg2 << 8 | arg1);
+    g_GPU->addque2(g_GPU->clr, arg0, 8, 0x80000000 | arg3 << 16 |  arg2 << 8 | arg1);
 }
 
 void func_801B9E9C(s16* arg0, s32 arg1) { 
     func_801B9C58("LoadImage", arg0);
-    D_801CC4E4.o->func2(D_801CC4E4.o->func8, arg0, 8, arg1);
+    g_GPU->addque2(g_GPU->dws, arg0, 8, arg1);
 }
 
 void func_801B9EFC(s16* arg0, s32 arg1) { 
     func_801B9C58(&D_801B4A78, arg0); // Can't pull this into rodata yet; used by func_801BC504.
-    D_801CC4E4.o->func2(D_801CC4E4.o->func7, arg0, 8, arg1);
+    g_GPU->addque2(g_GPU->drs, arg0, 8, arg1);
 }
 
 s32 func_801B9F5C(Rectangle* arg0, s32 arg1, s32 arg2) { 
-    Overlay* ovr;
+    gpu* temp_gpu;
     s32* thing2;
 
     func_801B9C58(&D_801B4A84, arg0); //"MoveImage"
@@ -159,11 +181,11 @@ s32 func_801B9F5C(Rectangle* arg0, s32 arg1, s32 arg2) {
         return -1; 
     }
     thing2 = (s32*)&arg0->coord3;
-    ovr = *(&D_801CC4E4.o);
+    temp_gpu = *(&g_GPU);
     D_801CC58C[0] = LOW(arg0->coord1);
     D_801CC58C[1] = ((arg2 << 0x10) | (arg1 & 0xFFFF));
     D_801CC58C[2] = *thing2;
-    return ovr->func2(ovr->func6, &D_801CC58C[-2], 0x14, 0);
+    return temp_gpu->addque2(temp_gpu->cwc, &D_801CC58C[-2], 0x14, 0);
 }
 
 extern s8 D_801B4A90;
@@ -195,7 +217,7 @@ OT_TYPE* ClearOTagR(OT_TYPE* ot, int arg1) {
     if (D_801CC4EE.unk0 >= 2) {
         GPU_printf(&D_801B4AA8, ot, arg1); //"ClearOTagR(%08x,%d)...\n"
     }
-    D_801CC4E4.o->func11(ot, arg1);
+    g_GPU->otc(ot, arg1);
     target = &D_801CC5AC;
     *target = ((s32) &D_801CC598  & 0xFFFFFF) | 0x04000000;
     LOW(target) &= 0xFFFFFF;
