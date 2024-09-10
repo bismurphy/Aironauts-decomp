@@ -1,6 +1,7 @@
 ClearOTag = 0x801BA014;
 ClearOTagR = 0x801BA0DC;
 PutDrawEnv = 0x801BA254;
+DrawOTagEnv = 0x801BA314;
 _status = 0x801BB16C;
 _otc = 0x801BB184;
 _clr = 0x801BB264;
