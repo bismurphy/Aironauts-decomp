@@ -2,6 +2,10 @@ A very early-stage decompilation for the 1999 Playstation game Aironauts (PAL-on
 
 Most of the build process is inherited from `sotn-decomp`. Thank you to that team :)
 
+Right now, I'm focusing on the SDK and decompiling its functions, from there we will be able to better understand the remaining functions. Again, lots of the SDK is coming from SOTN Decomp, with changes to reflect the different SDK version used on this game.
+
+I would love to talk to anyone about any thoughts or questions they have (especially if you have trouble setting up the repo!!!). Discussions are enabled on this repo for discussing anything.
+
 
 Setup process:
 
