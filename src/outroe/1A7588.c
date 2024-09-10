@@ -187,7 +187,21 @@ OT_TYPE* ClearOTag(OT_TYPE* ot, s32 n) {
     return ot;
 }
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BA0DC);
+extern s8 D_801B4AA8;
+
+OT_TYPE* ClearOTagR(OT_TYPE* ot, int arg1) {
+    s32* target;
+    
+    if (D_801CC4EE.unk0 >= 2) {
+        GPU_printf(&D_801B4AA8, ot, arg1); //"ClearOTagR(%08x,%d)...\n"
+    }
+    D_801CC4E4.o->func11(ot, arg1);
+    target = &D_801CC5AC;
+    *target = ((s32) &D_801CC598  & 0xFFFFFF) | 0x04000000;
+    LOW(target) &= 0xFFFFFF;
+    *ot = target;
+    return ot;
+}
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BA188);
 
