@@ -257,7 +257,7 @@ INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BA1E4);
 
 extern s8 D_801B4AD4;
 
-DRAWENV* func_801BA254(DRAWENV* env) {
+DRAWENV* PutDrawEnv(DRAWENV* env) {
     if (D_801CC4EE.unk0 >= 2) {
         GPU_printf(&D_801B4AD4, env); //"PutDrawEnv(%08x)...\n"
     }
