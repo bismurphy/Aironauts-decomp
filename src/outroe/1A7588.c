@@ -255,7 +255,18 @@ void DrawOTag(OT_TYPE p) {
 INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BA1E4);
 #endif
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BA254);
+extern s8 D_801B4AD4;
+
+DRAWENV* func_801BA254(DRAWENV* env) {
+    if (D_801CC4EE.unk0 >= 2) {
+        GPU_printf(&D_801B4AD4, env); //"PutDrawEnv(%08x)...\n"
+    }
+    func_801BAD10(&env->dr_env, env);
+    env->dr_env.tag |= 0xFFFFFF;
+    g_GPU->addque2(g_GPU->cwc, &env->dr_env, 0x40, 0);
+    func_801C2704(&D_801CC4EE.unkE, env, 0x5C);
+    return env;
+}
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BA314);
 

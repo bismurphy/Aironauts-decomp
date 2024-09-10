@@ -8,7 +8,11 @@ typedef struct{
     u8 unk0;
     s16 unk2;
     s16 unk4;
-
+    s16 unk6;
+    s16 unk8;
+    s16 unkA;
+    s16 unkC;
+    s16 unkE;
 } unk801CC4EE;
 
 extern unk801CC4EE D_801CC4EE;
