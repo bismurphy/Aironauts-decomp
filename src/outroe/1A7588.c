@@ -180,7 +180,7 @@ void func_801B9EFC(s16* arg0, s32 arg1) {
     g_GPU->addque2(g_GPU->drs, arg0, 8, arg1);
 }
 
-s32 func_801B9F5C(Rectangle* arg0, s32 arg1, s32 arg2) { 
+s32 MoveImage(Rectangle* arg0, s32 arg1, s32 arg2) { 
     gpu* temp_gpu;
     s32* thing2;
 

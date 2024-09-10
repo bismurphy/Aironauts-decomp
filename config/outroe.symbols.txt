@@ -1,6 +1,7 @@
 SetDispMask = 0x801B9B58;
 DrawSync = 0x801B9BF0;
 checkRECT = 0x801B9C58;
+MoveImage = 0x801B9F5C;
 ClearOTag = 0x801BA014;
 ClearOTagR = 0x801BA0DC;
 PutDrawEnv = 0x801BA254;
