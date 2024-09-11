@@ -118,7 +118,9 @@ INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B99E8);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B9A44);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B9AE8);
+u8 GetGraphDebug(void) {
+    return D_801CC4EC.unk2;
+}
 
 void* DrawSyncCallback(void (*func)()) {
     s32 temp_v0;

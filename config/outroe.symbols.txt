@@ -1,3 +1,5 @@
+
+GetGraphDebug = 0x801B9AE8;
 DrawSyncCallback = 0x801B9AF8;
 SetDispMask = 0x801B9B58;
 DrawSync = 0x801B9BF0;
