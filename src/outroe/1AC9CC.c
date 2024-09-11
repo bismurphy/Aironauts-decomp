@@ -51,8 +51,9 @@ void func_801BCDA4(void) {
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1AC9CC", func_801BCDD4);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AC9CC", func_801BCE04);
-
+void func_801BCE04(void) {
+    g_GPUCallbacks->DMACallback();
+}
 INCLUDE_ASM("asm/outroe/nonmatchings/1AC9CC", func_801BCE34);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1AC9CC", func_801BCE68);
