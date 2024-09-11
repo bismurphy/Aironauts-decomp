@@ -329,7 +329,12 @@ void DrawOTagEnv(s32 arg0, DRAWENV* env) {
     SDK_memcpy(&g_GraphicsDebug.unk10, env, 0x5C);
 }
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", GetDrawEnv);
+extern DRAWENV D_801CC4FC;
+
+DRAWENV* GetDrawEnv(DRAWENV* env) {
+    SDK_memcpy(env, &D_801CC4FC, 0x5C);
+    return env;
+}
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", PutDispEnv);
 
