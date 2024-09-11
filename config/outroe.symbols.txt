@@ -223,3 +223,4 @@ g_GPU = 0x801CC4E4;
 GPU_printf = 0x801CC4E8;
 g_GraphicsDebug = 0x801CC4EC;
 g_GraphicsDebug_level = 0x801CC4EE;
+g_GPUCallbacks = 0x801CD74C;

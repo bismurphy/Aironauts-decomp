@@ -18,6 +18,7 @@ CPP_FLAGS       += -Dmips -D__GNUC__=2 -D__OPTIMIZE__ -D__mips__ -D__mips -Dpsx 
 
 CC1PSX          := ./bin/cc1-gcc2.8.1-psx
 CC              := $(CC1PSX)
+CC27            := ./bin/cc1-gcc2.7.2-psx
 CC_FLAGS        += -G0 -w -O2 -funsigned-char -fpeephole -ffunction-cse -fpcc-struct-return -fcommon -fverbose-asm -msoft-float -g
 PSXCC_FLAGS     := -quiet -mcpu=3000 -fgnu-linker -mgas -gcoff
 
@@ -77,6 +78,10 @@ $(BUILD_DIR)/%.s.o: %.s
 $(BUILD_DIR)/%.c.o: %.c $(MENOSPSX_APP) $(CC1PSX)
 	mkdir -p $(dir $@)
 	$(CPP) $(CPP_FLAGS) -lang-c $< | $(CC) $(CC_FLAGS) $(PSXCC_FLAGS) | $(MENOSPSX) | $(AS) $(AS_FLAGS) -o $@
+
+$(BUILD_DIR)/src/outroe/1AC9CC.c.o: src/outroe/1AC9CC.c $(MENOSPSX_APP) $(CC1PSX)
+	mkdir -p $(dir $@)
+	$(CPP) $(CPP_FLAGS) -lang-c $< | $(CC27) $(CC_FLAGS) $(PSXCC_FLAGS) | $(MENOSPSX) | $(AS) $(AS_FLAGS) -o $@
 
 # putting this in causes make to not delete the intermediate .o files.
 SECONDARY: $(call list_o_files,outroe)

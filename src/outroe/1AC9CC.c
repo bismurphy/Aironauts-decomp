@@ -1,4 +1,29 @@
-#include "common.h"
+#include "outroe.h"
+
+// Defines the syscall stub for various functions
+#define BIOS_FUNCTION(name, section, id)                                       \
+    __asm__(                                                                   \
+        ".pushsection .text\n"                                                 \
+        "\t.align\t2\n"                                                        \
+        "\t.globl\t" #name "\n"                                                \
+        "\t.ent\t" #name "\n"                                                  \
+        "" #name " :\n"                                                        \
+        ".set noat\n"                                                          \
+        ".set noreorder\n"                                                     \
+        "\n"                                                                   \
+        "glabel " #name "\n"                                                   \
+        "\taddiu  $t2, $zero, " #section "\n"                                  \
+        "\tjr     $t2\n"                                                       \
+        "\t addiu $t1, $zero, " #id "\n"                                       \
+        "\tnop\n"                                                              \
+        ".size " #name ", . - " #name "\n"                                     \
+        "\t.set reorder\n"                                                     \
+        "\t.set at\n"                                                          \
+        "\t.end\t" #name "\n"                                                  \
+        ".popsection");
+
+#define BIOS_C_FUNCTION(name, id) BIOS_FUNCTION(name, 0xC0, id)
+
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1AC9CC", func_801BC9CC);
 
@@ -18,9 +43,11 @@ INCLUDE_ASM("asm/outroe/nonmatchings/1AC9CC", func_801BCCEC);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1AC9CC", ChangeClearPAD);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AC9CC", ChangeClearRCnt);
-
-INCLUDE_ASM("asm/outroe/nonmatchings/1AC9CC", func_801BCDA4);
+BIOS_C_FUNCTION(ChangeClearRCnt, 0xA);
+ 
+void func_801BCDA4(void) {
+    g_GPUCallbacks->ResetCallback();
+} 
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1AC9CC", func_801BCDD4);
 
