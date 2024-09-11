@@ -88,35 +88,41 @@ INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B8A44);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B8AA8);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B8B04);
+INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", OpenEvent);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B8B44);
+INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", CloseEvent);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B8B54);
+INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", EnableEvent);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B8C3C);
+INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", EnterCriticalSection);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B8CA0);
+INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", ExitCriticalSection);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B8D04);
+INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", LoadTPage);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B8DB8);
+INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", LoadClut);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B8DF4);
+INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", LoadClut2);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B8E34);
+INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", SetDefDrawEnv);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B8ED4);
+INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", SetDefDispEnv);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B918C);
+INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", SetDumpFnt);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B94A8);
+INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", FntLoad);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B9874);
+INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", FntOpen);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B99E8);
+INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", FntFlush);
 
-int func_801B9A44(int mode) {
+INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", FntPrint);
+
+INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", ResetGraph);
+
+INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", SetGraphDebug);
+
+int SetGraphQueue(int mode) {
     int old = D_801CC4EC.unk1;
     
     if (D_801CC4EC.unk2 >= 2) {
@@ -184,22 +190,22 @@ void checkRECT(char* arg0, s16* arg1) {
     }
 }
 
-void func_801B9D74(s16* arg0, u8 arg1, u8 arg2, u8 arg3) {
+void ClearImage(s16* arg0, u8 arg1, u8 arg2, u8 arg3) {
     checkRECT("ClearImage", arg0);
     g_GPU->addque2(g_GPU->clr, arg0, 8, arg3 << 16 |  arg2 << 8 | arg1);
 }
 
-void func_801B9E04(s16* arg0, u8 arg1, u8 arg2, u8 arg3) {
+void ClearImage2(s16* arg0, u8 arg1, u8 arg2, u8 arg3) {
     checkRECT("ClearImage2", arg0);
     g_GPU->addque2(g_GPU->clr, arg0, 8, 0x80000000 | arg3 << 16 |  arg2 << 8 | arg1);
 }
 
-void func_801B9E9C(s16* arg0, s32 arg1) { 
+void LoadImage(s16* arg0, s32 arg1) { 
     checkRECT("LoadImage", arg0);
     g_GPU->addque2(g_GPU->dws, arg0, 8, arg1);
 }
 
-void func_801B9EFC(s16* arg0, s32 arg1) { 
+void StoreImage(s16* arg0, s32 arg1) { 
     checkRECT(&D_801B4A78, arg0); // Can't pull this into rodata yet; used by func_801BC504.
     g_GPU->addque2(g_GPU->drs, arg0, 8, arg1);
 }
@@ -264,7 +270,7 @@ struct Temp {
 };
 
 
-void func_801BA188(struct Temp* arg0) {
+void DrawPrim(struct Temp* arg0) {
     s32 temp_s1;
 
     temp_s1 = arg0->unk3;
@@ -284,7 +290,7 @@ void DrawOTag(OT_TYPE p) {
     g_GPU->addque2(g_GPU->cwc, p, 0, 0);
 }
 #else
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BA1E4);
+INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", DrawOTag);
 #endif
 
 extern s8 D_801B4AD4;
@@ -296,7 +302,7 @@ DRAWENV* PutDrawEnv(DRAWENV* env) {
     func_801BAD10(&env->dr_env, env);
     env->dr_env.tag |= 0xFFFFFF;
     g_GPU->addque2(g_GPU->cwc, &env->dr_env, 0x40, 0);
-    func_801C2704(&D_801CC4EC.unk10, env, 0x5C);
+    SDK_memcpy(&D_801CC4EC.unk10, env, 0x5C);
     return env;
 }
 
@@ -310,30 +316,30 @@ void DrawOTagEnv(s32 arg0, DRAWENV* env) {
     func_801BAD10(&env->dr_env, env);
     env->dr_env.tag = (s32) ((env->dr_env.tag & 0xFF000000) | (arg0 & 0xFFFFFF));
     g_GPU->addque2(g_GPU->cwc, &env->dr_env, 0x40, 0);
-    func_801C2704(&D_801CC4EC.unk10, env, 0x5C);
+    SDK_memcpy(&D_801CC4EC.unk10, env, 0x5C);
 }
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BA3EC);
+INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", GetDrawEnv);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BA420);
+INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", PutDispEnv);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BA918);
+INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", GetDispEnv);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BA94C);
+INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", GetODE);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BA97C);
+INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", SetTexWindow);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BA9B4);
+INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", SetDrawArea);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BAA34);
+INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", SetDrawOffset);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BAA74);
+INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", SetPriority);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BAA9C);
+INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", SetDrawStp);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BAAC4);
+INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", SetDrawMode);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BAB18);
+INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", SetDrawEnv);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BAD10);
 
@@ -383,13 +389,13 @@ INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BC234);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BC378);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BC418);
+INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", LoadImage2);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BC504);
+INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", StoreImage2);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BC5F0);
+INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", MoveImage2);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BC734);
+INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", DrawOTag2);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801BC830);
 

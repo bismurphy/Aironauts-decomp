@@ -1,0 +1,259 @@
+- [0x1A8B04, c, psxsdk/libapi, a08]
+- [0x1A8B14, c, psxsdk/libapi, a09]
+- [0x1A8B24, c, psxsdk/libapi, a12]
+- [0x1A8B34, c, psxsdk/libapi, a36]
+- [0x1A8B44, c, psxsdk/libapi, a37]
+- [0x1A8DF4, c, psxsdk/libgpu, font]
+- [0x1AC884, c, psxsdk/libapi, c73]
+- [0x1AC894, c, psxsdk/libgpu, p00]
+- [0x1AC8D4, c, psxsdk/libgpu, p01]
+- [0x1AC8F4, c, psxsdk/libgpu, p06]
+- [0x1AC934, c, psxsdk/libgpu, p09]
+- [0x1AC954, c, psxsdk/libgpu, p10]
+- [0x1AC984, c, psxsdk/libgpu, p20]
+- [0x1AC9A4, c, psxsdk/libgpu, p26]
+- [0x1ACA54, c, psxsdk/libgte, reg12]
+- [0x1ACA74, c, psxsdk/libgte, reg13]
+- [0x1ACB64, c, psxsdk/libapi, c68]
+- [0x1ACD84, c, psxsdk/libapi, a91]
+- [0x1ACD94, c, psxsdk/libapi, l10]
+- [0x1AD484, c, psxsdk/libapi, a23]
+- [0x1AD494, c, psxsdk/libapi, a24]
+- [0x1AD4A4, c, psxsdk/libapi, a25]
+- [0x1AD5D4, c, psxsdk/libetc, intr_dma]
+- [0x1AD8A4, c, psxsdk/libcd, cdrom]
+- [0x1AD8D4, c, psxsdk/libcd, toc]
+- [0x1ADC24, c, psxsdk/libapi, a07]
+- [0x1ADCDC, c, psxsdk/libgs, gs_106]
+- [0x1ADCDC, c, psxsdk/libsnd, ssnoff]
+- [0x1ADCDC, c, psxsdk/libsnd, ssquit]
+- [0x1ADCDC, c, psxsdk/libsn, _op_vdel]
+- [0x1ADCDC, c, psxsdk/libsn, _op_vnew]
+- [0x1AE3C4, c, psxsdk/libcd, bios]
+- [0x1AFB24, c, psxsdk/libcd, iso9660]
+- [0x1B0C44, c, psxsdk/libcd, cdread2]
+- [0x1B0CF4, c, psxsdk/libcd, c_002]
+- [0x1B0D54, c, psxsdk/libcd, c_003]
+- [0x1B0EC4, c, psxsdk/libcd, c_005]
+- [0x1B0F54, c, psxsdk/libcd, c_007]
+- [0x1B1004, c, psxsdk/libcd, c_008]
+- [0x1B1044, c, psxsdk/libcd, c_009]
+- [0x1B1124, c, psxsdk/libcd, c_011]
+- [0x1B1C74, c, psxsdk/libpress, libpress]
+- [0x1B26C4, c, psxsdk/libc, c19]
+- [0x1B26D4, c, psxsdk/libc, c23]
+- [0x1B26E4, c, psxsdk/libc, c24]
+- [0x1B26F4, c, psxsdk/libc, c27]
+- [0x1B2704, c, psxsdk/libc, c42]
+- [0x1B2714, c, psxsdk/libc, c43]
+- [0x1B2724, c, psxsdk/libc, c47]
+- [0x1B2734, c, psxsdk/libc, c63]
+- [0x1B2744, c, psxsdk/libsnd, ut_roff]
+- [0x1B2744, c, psxsdk/libspu, s_i]
+- [0x1B2764, c, psxsdk/libspu, s_ini]
+- [0x1B28C4, c, psxsdk/libspu, spu]
+- [0x1B3404, c, psxsdk/libspu, s_dcb]
+- [0x1B3434, c, psxsdk/libspu, s_q]
+- [0x1B34B4, c, psxsdk/libapi, a13]
+- [0x1B34C4, c, psxsdk/libspu, s_sk]
+- [0x1B3684, c, psxsdk/libspu, s_r]
+- [0x1B3684, c, psxsdk/libspu, s_w]
+- [0x1B36E4, c, psxsdk/libspu, s_w0]
+- [0x1B3844, c, psxsdk/libapi, a10]
+- [0x1B3854, c, psxsdk/libspu, s_stsa]
+- [0x1B38B4, c, psxsdk/libspu, s_stm]
+- [0x1B38E4, c, psxsdk/libspu, s_itc]
+- [0x1B3994, c, psxsdk/libapi, a11]
+- [0x1B39A4, c, psxsdk/libspu, s_sca]
+- [0x1B3D24, c, psxsdk/libspu, s_svv]
+- [0x1B3DA4, c, psxsdk/libspu, s_svp]
+- [0x1B3E14, c, psxsdk/libspu, s_svsa]
+- [0x1B3E94, c, psxsdk/libspu, s_sva]
+- [0x1B4784, c, psxsdk/libsnd, ssend]
+- [0x1B4834, c, psxsdk/libsnd, ssinit_h]
+- [0x1B4954, c, psxsdk/libsnd, sssattr]
+- [0x1B4A14, c, psxsdk/libsnd, sssmv]
+- [0x1B4A64, c, psxsdk/libsnd, ssstart]
+- [0x1B4C94, c, psxsdk/libsnd, ut_ron]
+- [0x1B4C94, c, psxsdk/libspu, s_ih]
+- [0x1B4D74, c, psxsdk/libapi, counter]
+- [0x1B4EE4, c, psxsdk/libsnd, sscall]
+- [0x1B5804, c, psxsdk/libsnd, pause]
+- [0x1B58A4, c, psxsdk/libsnd, play]
+- [0x1B58D4, c, psxsdk/libsnd, midiread]
+- [0x1B5FC4, c, psxsdk/libsnd, miditime]
+- [0x1B6074, c, psxsdk/libsnd, next]
+- [0x1B6174, c, psxsdk/libsnd, replay]
+- [0x1B61D4, c, psxsdk/libsnd, ssstop]
+- [0x1B63B4, c, psxsdk/libsnd, sssv]
+- [0x1B64C4, c, psxsdk/libsnd, sstick]
+- [0x1B6614, c, psxsdk/libsnd, tempo]
+- [0x1B6834, c, psxsdk/libsnd, ut_rdep]
+- [0x1B68C4, c, psxsdk/libspu, s_srmp]
+- [0x1B7384, c, psxsdk/libspu, s_crwa]
+- [0x1B7524, c, psxsdk/libsnd, ut_rev]
+- [0x1B75D4, c, psxsdk/libspu, s_sr]
+- [0x1B76E4, c, psxsdk/libsnd, vm_doff]
+- [0x1B7B84, c, psxsdk/libspu, s_snv]
+- [0x1B7BB4, c, psxsdk/libspu, s_sav]
+- [0x1B7E74, c, psxsdk/libspu, s_srv]
+- [0x1B7EA4, c, psxsdk/libspu, s_gvex]
+- [0x1B8214, c, psxsdk/libspu, s_m_init]
+- [0x1B8274, c, psxsdk/libspu, s_it]
+- [0x1B8AB4, c, psxsdk/libsnd, vm_vsu]
+- [0x1B9BF4, c, psxsdk/libapi, l02]
+- [0x1B9C04, c, psxsdk/libapi, l03]
+- [0x1BB194, c, psxsdk/libc, c40]
+FlushCache = 0x801BC364;
+GPU_cw = 0x801BC084;
+DeliverEvent = 0x801BD424;
+OpenEvent = 0x801B8304;
+CloseEvent = 0x801B8314;
+WaitEvent = 0x801C3044;
+TestEvent = 0x801C3194;
+EnableEvent = 0x801B8324;
+DisableEvent = 0x801C2CB4;
+ReturnFromException = 0x801BCC84;
+ResetEntryInt = 0x801BCC94;
+HookEntryInt = 0x801BCCA4;
+EnterCriticalSection = 0x801B8334;
+ExitCriticalSection = 0x801B8344;
+ChangeClearPAD = 0x801BC584;
+SysEnqIntRP = 0x801C93F4;
+SysDeqIntRP = 0x801C9404;
+ChangeClearRCnt = 0x801BC594;
+SetRCnt = 0x801C4574;
+GetRCnt = 0x801C4610;
+StartRCnt = 0x801C4648;
+StopRCnt = 0x801C4678;
+ResetRCnt = 0x801C46AC;
+StSetRing = 0x801BD0A4;
+CdGetToc = 0x801BD0D4;
+CdGetToc2 = 0x801BD0F8;
+CD_sync = 0x801BE120;
+CD_ready = 0x801BE3A0;
+CD_cw = 0x801BE668;
+CD_vol = 0x801BEA74;
+CD_flush = 0x801BEAFC;
+CD_initvol = 0x801BEBD0;
+CD_initintr = 0x801BECC0;
+CD_init = 0x801BED0C;
+CD_datasync = 0x801BEEEC;
+CD_getsector = 0x801BF054;
+CD_getsector2 = 0x801BF154;
+CD_set_test_parmnum = 0x801BF240;
+CdSearchFile = 0x801BF324;
+CdRead2 = 0x801C0444;
+StClearRing = 0x801C04F4;
+StUnSetRing = 0x801C0554;
+StSetStream = 0x801C06C4;
+StFreeRing = 0x801C0754;
+init_ring_status = 0x801C0804;
+StGetNext = 0x801C0844;
+StCdInterrupt = 0x801C0924;
+setjmp = 0x801C1EC4;
+strcmp = 0x801C1ED4;
+strncmp = 0x801C1EE4;
+strlen = 0x801C1EF4;
+bzero = 0x801CA994;
+memcpy = 0x801C1F04;
+memset = 0x801C1F14;
+rand = 0x801C1F24;
+printf = 0x801C1F34;
+startIntrDMA = 0x801BCDD4;
+SetDumpFnt = 0x801B85F4;
+FntLoad = 0x801B8634;
+FntOpen = 0x801B86D4;
+FntFlush = 0x801B898C;
+FntPrint = 0x801B8CA8;
+GetTPage = 0x801BC094;
+GetClut = 0x801BC0D4;
+AddPrim = 0x801BC0F4;
+TermPrim = 0x801BC134;
+SetSemiTrans = 0x801BC154;
+SetSprt8 = 0x801BC184;
+SetTile = 0x801BC1A4;
+GsSetProjection = 0x801BD4DC;
+SetGeomOffset = 0x801BC254;
+SetGeomScreen = 0x801BC274;
+DecDCTReset = 0x801C1474;
+DecDCTGetEnv = 0x801C14A8;
+DecDCTPutEnv = 0x801C1534;
+DecDCTBufSize = 0x801C15CC;
+DecDCTin = 0x801C15D8;
+DecDCTout = 0x801C1654;
+DecDCTinSync = 0x801C1674;
+DecDCToutSync = 0x801C16B0;
+DecDCTinCallback = 0x801C16EC;
+DecDCToutCallback = 0x801C1710;
+_SsSeqPlay = 0x801C50D4;
+_SsSeqGetEof = 0x801C51D0;
+_SsGetSeqData = 0x801C5414;
+_SsReadDeltaValue = 0x801C57C4;
+_SsSndNextSep = 0x801C5874;
+_SsSndPause = 0x801C5004;
+_SsSndPlay = 0x801C50A4;
+_SsSndReplay = 0x801C5974;
+SsSeqCalledTbyT = 0x801C46E4;
+SsEnd = 0x801C3F84;
+SsInitHot = 0x801C4034;
+SsSetNoiseOff = 0x801BD4DC;
+SsQuit = 0x801BD4DC;
+SsSetSerialAttr = 0x801C4154;
+SsSetMVol = 0x801C4214;
+SsStart = 0x801C4494;
+SsStart2 = 0x801C44B4;
+_SsSndStop = 0x801C59D4;
+SsSeqStop = 0x801C5B54;
+SsSepStop = 0x801C5B7C;
+SsSetSerialVol = 0x801C5BB4;
+SsSetTickMode = 0x801C5CC4;
+_SsSndTempo = 0x801C5E14;
+SsUtSetReverbDepth = 0x801C6034;
+SsUtSetReverbType = 0x801C6D24;
+SsUtGetReverbType = 0x801C6DC0;
+SsUtReverbOff = 0x801C1F44;
+SsUtReverbOn = 0x801C4494;
+_SsVmDamperOff = 0x801C6EE4;
+_SsVmVSetUp = 0x801C82B4;
+__builtin_vec_delete = 0x801BD4DC;
+__builtin_vec_new = 0x801BD4DC;
+_spu_init = 0x801C20C4;
+_spu_FiDMA = 0x801C2504;
+_spu_Fr_ = 0x801C25C0;
+_spu_t = 0x801C2668;
+_spu_Fw = 0x801C28E8;
+_spu_Fr = 0x801C296C;
+_spu_FsetRXX = 0x801C29D0;
+_spu_FsetRXXa = 0x801C2A14;
+_spu_FgetRXXa = 0x801C2AB8;
+_spu_FsetPCR = 0x801C2AF4;
+_spu_Fw1ts = 0x801C2B9C;
+_SpuDataCallback = 0x801C2C04;
+_SpuInit = 0x801C1F64;
+SpuStart = 0x801C204C;
+SpuInit = 0x801C1F44;
+SpuInitHot = 0x801C4494;
+SpuQuit = 0x801C2C34;
+SpuInitMalloc = 0x801C7A14;
+_SpuSetAnyVoice = 0x801C73B4;
+SpuSetNoiseVoice = 0x801C7384;
+SpuSetReverb = 0x801C6DD4;
+SpuSetReverbModeParam = 0x801C60C4;
+SpuSetReverbVoice = 0x801C7674;
+SpuClearReverbWorkArea = 0x801C6B84;
+SpuSetKey = 0x801C2CC4;
+SpuRead = 0x801C2E84;
+SpuWrite = 0x801C2E84;
+SpuWrite0 = 0x801C2EE4;
+SpuSetTransferStartAddr = 0x801C3054;
+SpuSetTransferMode = 0x801C30B4;
+SpuIsTransferCompleted = 0x801C30E4;
+_spu_setInTransfer = 0x801C7A74;
+_spu_getInTransfer = 0x801C7A9C;
+SpuSetCommonAttr = 0x801C31A4;
+SpuSetVoiceVolume = 0x801C3524;
+SpuSetVoicePitch = 0x801C35A4;
+SpuSetVoiceStartAddr = 0x801C3614;
+SpuSetVoiceAttr = 0x801C3694;
+SpuGetVoiceEnvelope = 0x801C76A4;

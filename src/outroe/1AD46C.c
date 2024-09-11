@@ -1,14 +1,14 @@
 #include "common.h"
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801BD46C);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", _96_remove);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801BD484);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", ReturnFromException);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801BD494);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", ResetEntryInt);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801BD4A4);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", HookEntryInt);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801BD4B4);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", startIntrVSync);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801BD50C);
 
@@ -16,7 +16,7 @@ INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801BD578);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801BD5A4);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801BD5D4);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", startIntrDMA);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801BD620);
 
@@ -28,13 +28,13 @@ INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801BD874);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801BD888);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801BD8A4);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", StSetRing);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801BD8D4);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", CdGetToc);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801BD8F8);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", CdGetToc2);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801BDB24);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", CdInit);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801BDBA8);
 
@@ -42,7 +42,7 @@ INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801BDBD0);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801BDBF8);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801BDC24);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", DeliverEvent);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801BDC44);
 
@@ -52,7 +52,7 @@ INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801BDC64);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801BDC70);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801BDCDC);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", SsQuit);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801BDCFC);
 
@@ -90,33 +90,33 @@ INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801BE344);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801BE3C4);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801BE920);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", CD_sync);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801BEBA0);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", CD_ready);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801BEE68);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", CD_cw);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801BF274);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", CD_vol);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801BF2FC);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", CD_flush);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801BF3D0);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", CD_initvol);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801BF4C0);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", CD_initintr);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801BF50C);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", CD_init);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801BF6EC);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", CD_datasync);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801BF854);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", CD_getsector);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801BF954);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", CD_getsector2);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801BFA40);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", CD_set_test_parmnum);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801BFA4C);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801BFB24);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", CdSearchFile);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801BFDFC);
 
@@ -134,39 +134,39 @@ INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801C06F4);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801C07C0);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801C09B0);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", CdReadBreak);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801C0A44);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", CdRead);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801C0B44);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", CdReadSync);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801C0C0C);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", CdReadCallback);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801C0C20);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", CdReadMode);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801C0C44);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", CdRead2);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801C0CC8);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801C0CF4);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", StClearRing);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801C0D54);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", StUnSetRing);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801C0DD4);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801C0E60);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801C0EC4);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", StSetStream);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801C0F54);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", StFreeRing);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801C1004);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", init_ring_status);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801C1044);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", StGetNext);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801C1104);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801C1124);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", StCdInterrupt);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801C1A40);
 
@@ -180,25 +180,25 @@ INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801C1C3C);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801C1C50);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801C1C74);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", DecDCTReset);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801C1CA8);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", DecDCTGetEnv);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801C1D34);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", DecDCTPutEnv);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801C1DCC);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", DecDCTBufSize);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801C1DD8);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", DecDCTin);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801C1E54);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", DecDCTout);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801C1E74);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", DecDCTinSync);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801C1EB0);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", DecDCToutSync);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801C1EEC);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", DecDCTinCallback);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801C1F10);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", DecDCToutCallback);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801C1F34);
 

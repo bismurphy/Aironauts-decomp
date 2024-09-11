@@ -44,17 +44,10 @@ def match_signature(data, sig: str):
 
 def parse_libsig(lib_name, path, data):
     res = []
-
-    if not os.path.exists(path):
-        print("Need to fetch")
-        github_url = "https://raw.githubusercontent.com/lab313ru/psx_psyq_signatures/main/" + path
-        with requests.get(github_url, "r") as github_file:
-            data = github_file.text
-            with open(path,'w') as f_out:
-                print("Writing")
-                f_out.write(data)
-
-    with open(path) as f:
+    filepath = "sigs/" + path
+    if not os.path.exists(filepath):
+        return []
+    with open(filepath) as f:
         lib = json.load(f)
 
     for obj in lib:
@@ -74,6 +67,7 @@ def parse_libsig(lib_name, path, data):
     return res
 
 def main(data_in, sdk_version):
+    full_text_output = []
     res = []
     for lib_name in [
         "libapi",
@@ -106,8 +100,8 @@ def main(data_in, sdk_version):
         obj_name = r["obj"]
         obj = r["data"]
         offset = r["off"]
-        print(f"- [0x{offset:X}, c, psxsdk/{lib_name}, {obj_name}]")
-
+        full_text_output.append(f"- [0x{offset:X}, c, psxsdk/{lib_name}, {obj_name}]")
+    print("segment 1 done?")
     # print symbol list
     vram = 0x80010000
     for r in res:
@@ -123,11 +117,13 @@ def main(data_in, sdk_version):
             if name.startswith("text_"):
                 continue
             final_off = vram + offset + label["offset"] - 0x800
-            print(f"{name} = 0x{final_off:X};")
-
+            full_text_output.append(f"{name} = 0x{final_off:X};")
+    with open("found_psxsdk_signatures/" + str(sdk_version),'w') as f:
+        f.write("\n".join(full_text_output))
 if __name__ == "__main__":
     with open("build/outroe.exe", "rb") as f:
         data = f.read()
-        sdk_version = 350 # which file from github to use
-        main(data, 350)
+        for sdk_version in [400, 410, 420, 430, 440, 450, 460, 470]:
+            print(sdk_version)
+            main(data, sdk_version)
     print("Done!")

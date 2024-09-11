@@ -2,19 +2,23 @@
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1AC9CC", func_801BC9CC);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AC9CC", func_801BCA54);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AC9CC", SetGeomOffset);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AC9CC", func_801BCA74);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AC9CC", SetGeomScreen);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1AC9CC", func_801BCA84);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1AC9CC", func_801BCB30);
 
+INCLUDE_ASM("asm/outroe/nonmatchings/1AC9CC", FlushCache);
+
 INCLUDE_ASM("asm/outroe/nonmatchings/1AC9CC", func_801BCB74);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1AC9CC", func_801BCCEC);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AC9CC", func_801BCD84);
+INCLUDE_ASM("asm/outroe/nonmatchings/1AC9CC", ChangeClearPAD);
+
+INCLUDE_ASM("asm/outroe/nonmatchings/1AC9CC", ChangeClearRCnt);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1AC9CC", func_801BCDA4);
 

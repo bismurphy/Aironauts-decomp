@@ -1,0 +1,104 @@
+- [0x1A8B04, c, psxsdk/libapi, a08]
+- [0x1A8B14, c, psxsdk/libapi, a09]
+- [0x1A8B24, c, psxsdk/libapi, a12]
+- [0x1A8B34, c, psxsdk/libapi, a36]
+- [0x1A8B44, c, psxsdk/libapi, a37]
+- [0x1AC884, c, psxsdk/libapi, c73]
+- [0x1ACA54, c, psxsdk/libgte, reg12]
+- [0x1ACA74, c, psxsdk/libgte, reg13]
+- [0x1ACB64, c, psxsdk/libapi, c68]
+- [0x1ACD84, c, psxsdk/libapi, a91]
+- [0x1ACD94, c, psxsdk/libapi, l10]
+- [0x1AD484, c, psxsdk/libapi, a23]
+- [0x1AD494, c, psxsdk/libapi, a24]
+- [0x1AD4A4, c, psxsdk/libapi, a25]
+- [0x1ADC24, c, psxsdk/libapi, a07]
+- [0x1ADCDC, c, psxsdk/libapi, send]
+- [0x1ADCDC, c, psxsdk/libgs, gs_106]
+- [0x1ADCDC, c, psxsdk/libsnd, ssnoff]
+- [0x1ADCDC, c, psxsdk/libsnd, ssquit]
+- [0x1ADCDC, c, psxsdk/libsn, _op_vdel]
+- [0x1ADCDC, c, psxsdk/libsn, _op_vnew]
+- [0x1B0CF4, c, psxsdk/libcd, c_002]
+- [0x1B26C4, c, psxsdk/libc, c19]
+- [0x1B26D4, c, psxsdk/libc, c23]
+- [0x1B26E4, c, psxsdk/libc, c24]
+- [0x1B26F4, c, psxsdk/libc, c27]
+- [0x1B2704, c, psxsdk/libc, c42]
+- [0x1B2714, c, psxsdk/libc, c43]
+- [0x1B2724, c, psxsdk/libc, c47]
+- [0x1B2734, c, psxsdk/libc, c63]
+- [0x1B2744, c, psxsdk/libsnd, ut_roff]
+- [0x1B2744, c, psxsdk/libspu, s_i]
+- [0x1B3404, c, psxsdk/libspu, s_dcb]
+- [0x1B34B4, c, psxsdk/libapi, a13]
+- [0x1B3844, c, psxsdk/libapi, a10]
+- [0x1B3994, c, psxsdk/libapi, a11]
+- [0x1B4834, c, psxsdk/libsnd, ssinit_c]
+- [0x1B4834, c, psxsdk/libsnd, ssinit_h]
+- [0x1B4864, c, psxsdk/libsnd, ssinit]
+- [0x1B4A14, c, psxsdk/libsnd, sssmv]
+- [0x1B4C94, c, psxsdk/libsnd, ut_ron]
+- [0x1B4C94, c, psxsdk/libspu, s_ih]
+- [0x1B58A4, c, psxsdk/libsnd, play]
+- [0x1B6074, c, psxsdk/libsnd, next]
+- [0x1B6174, c, psxsdk/libsnd, replay]
+- [0x1B7B84, c, psxsdk/libspu, s_snv]
+- [0x1B7E74, c, psxsdk/libspu, s_srv]
+- [0x1B7EA4, c, psxsdk/libspu, s_gvex]
+- [0x1B8214, c, psxsdk/libspu, s_m_init]
+- [0x1B9BF4, c, psxsdk/libapi, l02]
+- [0x1B9C04, c, psxsdk/libapi, l03]
+- [0x1BB194, c, psxsdk/libc, c40]
+FlushCache = 0x801BC364;
+GPU_cw = 0x801BC084;
+DeliverEvent = 0x801BD424;
+OpenEvent = 0x801B8304;
+CloseEvent = 0x801B8314;
+WaitEvent = 0x801C3044;
+TestEvent = 0x801C3194;
+EnableEvent = 0x801B8324;
+DisableEvent = 0x801C2CB4;
+ReturnFromException = 0x801BCC84;
+ResetEntryInt = 0x801BCC94;
+HookEntryInt = 0x801BCCA4;
+EnterCriticalSection = 0x801B8334;
+ExitCriticalSection = 0x801B8344;
+ChangeClearPAD = 0x801BC584;
+SysEnqIntRP = 0x801C93F4;
+SysDeqIntRP = 0x801C9404;
+ChangeClearRCnt = 0x801BC594;
+SendPAD = 0x801BD4DC;
+StClearRing = 0x801C04F4;
+setjmp = 0x801C1EC4;
+strcmp = 0x801C1ED4;
+strncmp = 0x801C1EE4;
+strlen = 0x801C1EF4;
+bzero = 0x801CA994;
+memcpy = 0x801C1F04;
+memset = 0x801C1F14;
+rand = 0x801C1F24;
+printf = 0x801C1F34;
+GsSetProjection = 0x801BD4DC;
+SetGeomOffset = 0x801BC254;
+SetGeomScreen = 0x801BC274;
+_SsSndNextSep = 0x801C5874;
+_SsSndPlay = 0x801C50A4;
+_SsSndReplay = 0x801C5974;
+_SsInit = 0x801C4064;
+SsInit = 0x801C4034;
+SsInitHot = 0x801C4034;
+SsSetNoiseOff = 0x801BD4DC;
+SsQuit = 0x801BD4DC;
+SsSetMVol = 0x801C4214;
+SsUtReverbOff = 0x801C1F44;
+SsUtReverbOn = 0x801C4494;
+__builtin_vec_delete = 0x801BD4DC;
+__builtin_vec_new = 0x801BD4DC;
+_SpuDataCallback = 0x801C2C04;
+SpuInit = 0x801C1F44;
+SpuInitHot = 0x801C4494;
+SpuInitMalloc = 0x801C7A14;
+SpuSetNoiseVoice = 0x801C7384;
+SpuSetReverbVoice = 0x801C7674;
+SpuGetVoiceEnvelope = 0x801C76A4;
