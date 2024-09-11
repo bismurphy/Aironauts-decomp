@@ -120,62 +120,72 @@ INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", FntPrint);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", ResetGraph);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", SetGraphDebug);
+int SetGraphDebug(u8 level) {
+    int old; 
+
+    old = g_GraphicsDebug.level;
+    g_GraphicsDebug.level = level;
+    if (level) {
+        GPU_printf("SetGraphDebug:level:%d,type:%d reverse:%d\n",
+         g_GraphicsDebug.level, g_GraphicsDebug.type, g_GraphicsDebug.reverse);
+    }
+    return old;
+}
 
 int SetGraphQueue(int mode) {
-    int old = D_801CC4EC.unk1;
+    int old = g_GraphicsDebug.unk1;
     
-    if (D_801CC4EC.unk2 >= 2) {
+    if (g_GraphicsDebug.level >= 2) {
         do{GPU_printf("SetGrapQue(%d)...\n", mode);}while(0);
     }
-    if (mode != D_801CC4EC.unk1) {
+    if (mode != g_GraphicsDebug.unk1) {
         g_GPU->reset(1);
-        D_801CC4EC.unk1 = mode;
+        g_GraphicsDebug.unk1 = mode;
         func_801BCE04(2, 0);
     }
     return old;
 }
 
 u8 GetGraphDebug(void) {
-    return D_801CC4EC.unk2;
+    return g_GraphicsDebug.level;
 }
 
 void* DrawSyncCallback(void (*func)()) {
     s32 temp_v0;
 
-    if (D_801CC4EC.unk2 >= 2) {
+    if (g_GraphicsDebug.level >= 2) {
         GPU_printf("DrawSyncCallback(%08x)...\n", func);
     }
-    temp_v0 = D_801CC4EC.unkC;
-    D_801CC4EC.unkC = func;
+    temp_v0 = g_GraphicsDebug.unkC;
+    g_GraphicsDebug.unkC = func;
     return temp_v0;
 }
 
 
 void SetDispMask(s32 mask) {
-    if (D_801CC4EC.unk2 >= 2) {
+    if (g_GraphicsDebug.level >= 2) {
         GPU_printf("SetDispMask(%d)...\n", mask);
     }
     if (mask == 0) {
-        fillArrayWithValue(&D_801CC4EC.unk6A, -1, 0x14);
+        fillArrayWithValue(&g_GraphicsDebug.unk6A, -1, 0x14);
     }
     g_GPU->ctl(mask ? 0x03000000 : 0x03000001);
 }
 
 void DrawSync(s32 arg0) { 
-    if (D_801CC4EC.unk2 >= 2) {
+    if (g_GraphicsDebug.level >= 2) {
         GPU_printf("DrawSync(%d)...\n", arg0);
     }
     g_GPU->sync(arg0);
 }
 
 void checkRECT(char* arg0, s16* arg1) { 
-    switch (D_801CC4EC.unk2) {
+    switch (g_GraphicsDebug.level) {
     case 1:
-        if ((arg1[2] > D_801CC4EC.unk4) || 
-            (arg1[2] + arg1[0] > D_801CC4EC.unk4) || 
-            (arg1[1] > D_801CC4EC.unk6) || 
-            (arg1[1] + arg1[3] > D_801CC4EC.unk6) || 
+        if ((arg1[2] > g_GraphicsDebug.unk4) || 
+            (arg1[2] + arg1[0] > g_GraphicsDebug.unk4) || 
+            (arg1[1] > g_GraphicsDebug.unk6) || 
+            (arg1[1] + arg1[3] > g_GraphicsDebug.unk6) || 
             (arg1[2] <= 0) || 
             (arg1[0] < 0) || 
             (arg1[1] < 0) || 
@@ -206,7 +216,7 @@ void LoadImage(s16* arg0, s32 arg1) {
 }
 
 void StoreImage(s16* arg0, s32 arg1) { 
-    checkRECT(&D_801B4A78, arg0); // Can't pull this into rodata yet; used by func_801BC504.
+    checkRECT(&D_801B4A78, arg0); // Can't pull this into rodata yet; used by StoreImage2.
     g_GPU->addque2(g_GPU->drs, arg0, 8, arg1);
 }
 
@@ -233,7 +243,7 @@ extern s32 D_801CC5AC;
 OT_TYPE* ClearOTag(OT_TYPE* ot, s32 n) {
     s32* target;
 
-    if (D_801CC4EC.unk2 >= 2) { 
+    if (g_GraphicsDebug.level >= 2) { 
         GPU_printf(&D_801B4A90, ot, n); //"ClearOTag(%08x,%d)...\n"
     }
     for(n--; n != 0; n--, ot++) {
@@ -252,7 +262,7 @@ extern s8 D_801B4AA8;
 OT_TYPE* ClearOTagR(OT_TYPE* ot, int arg1) {
     s32* target;
     
-    if (D_801CC4EC.unk2 >= 2) {
+    if (g_GraphicsDebug.level >= 2) {
         GPU_printf(&D_801B4AA8, ot, arg1); //"ClearOTagR(%08x,%d)...\n"
     }
     g_GPU->otc(ot, arg1);
@@ -284,7 +294,7 @@ void DrawPrim(struct Temp* arg0) {
 extern s8 D_801B4AC0;
 
 void DrawOTag(OT_TYPE p) {
-    if (D_801CC4EC.unk2 >= 2) {
+    if (g_GraphicsDebug.level >= 2) {
         GPU_printf(&D_801B4AC0, p); //"DrawOTag(%08x)...\n"
     }
     g_GPU->addque2(g_GPU->cwc, p, 0, 0);
@@ -296,13 +306,13 @@ INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", DrawOTag);
 extern s8 D_801B4AD4;
 
 DRAWENV* PutDrawEnv(DRAWENV* env) {
-    if (D_801CC4EC.unk2 >= 2) {
+    if (g_GraphicsDebug.level >= 2) {
         GPU_printf(&D_801B4AD4, env); //"PutDrawEnv(%08x)...\n"
     }
     func_801BAD10(&env->dr_env, env);
     env->dr_env.tag |= 0xFFFFFF;
     g_GPU->addque2(g_GPU->cwc, &env->dr_env, 0x40, 0);
-    SDK_memcpy(&D_801CC4EC.unk10, env, 0x5C);
+    SDK_memcpy(&g_GraphicsDebug.unk10, env, 0x5C);
     return env;
 }
 
@@ -310,13 +320,13 @@ extern s8 D_801B4AEC;
 
 void DrawOTagEnv(s32 arg0, DRAWENV* env) {
 
-    if (D_801CC4EC.unk2 >= 2) {
+    if (g_GraphicsDebug.level >= 2) {
         GPU_printf(&D_801B4AEC, arg0, env); //"DrawOTagEnv(%08x,&08x)...\n"
     }
     func_801BAD10(&env->dr_env, env);
     env->dr_env.tag = (s32) ((env->dr_env.tag & 0xFF000000) | (arg0 & 0xFFFFFF));
     g_GPU->addque2(g_GPU->cwc, &env->dr_env, 0x40, 0);
-    SDK_memcpy(&D_801CC4EC.unk10, env, 0x5C);
+    SDK_memcpy(&g_GraphicsDebug.unk10, env, 0x5C);
 }
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", GetDrawEnv);

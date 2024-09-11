@@ -5,9 +5,10 @@ extern s32 (*GPU_printf)(char* somePtr,  ...);
 
 
 typedef struct{
-    u8 unk0;
+    u8 type;
     u8 unk1;
-    u8 unk2;
+    u8 level;
+    u8 reverse;
     s16 unk4;
     s16 unk6;
     s16 unk8;
@@ -37,9 +38,9 @@ typedef struct{
     s16 unk68;
     s16 correction; // 6a was coming at 68? need more used in here.
     u8 unk6A;
-} unk801CC4EC;
+} graphicsDebug;
 
-extern unk801CC4EC D_801CC4EC;
+extern graphicsDebug g_GraphicsDebug;
 
 
 extern char* D_801B4A78;

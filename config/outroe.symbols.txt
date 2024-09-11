@@ -221,3 +221,5 @@ SysDeqIntRP = 0x801C9C04;
 bzero = 0x801CB194;
 g_GPU = 0x801CC4E4;
 GPU_printf = 0x801CC4E8;
+g_GraphicsDebug = 0x801CC4EC;
+g_GraphicsDebug_level = 0x801CC4EE;
