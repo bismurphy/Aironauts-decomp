@@ -5,7 +5,8 @@ extern s32 (*GPU_printf)(char* somePtr,  ...);
 
 
 typedef struct{
-    u16 unk0;
+    u8 unk0;
+    u8 unk1;
     u8 unk2;
     s16 unk4;
     s16 unk6;

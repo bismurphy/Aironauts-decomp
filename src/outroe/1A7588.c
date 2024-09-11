@@ -116,7 +116,19 @@ INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B9874);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B99E8);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B9A44);
+int func_801B9A44(int mode) {
+    int old = D_801CC4EC.unk1;
+    
+    if (D_801CC4EC.unk2 >= 2) {
+        do{GPU_printf("SetGrapQue(%d)...\n", mode);}while(0);
+    }
+    if (mode != D_801CC4EC.unk1) {
+        g_GPU->reset(1);
+        D_801CC4EC.unk1 = mode;
+        func_801BCE04(2, 0);
+    }
+    return old;
+}
 
 u8 GetGraphDebug(void) {
     return D_801CC4EC.unk2;
