@@ -74,6 +74,7 @@ SetTile = 0x801BC9A4;
 SetGeomOffset = 0x801BCA54;
 SetGeomScreen = 0x801BCA74;
 FlushCache = 0x801BCB64;
+v_wait = 0x801BCCEC;
 ChangeClearPAD = 0x801BCD84;
 ChangeClearRCnt = 0x801BCD94;
 _96_remove = 0x801BD46C;

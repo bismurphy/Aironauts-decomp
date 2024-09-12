@@ -39,7 +39,19 @@ INCLUDE_ASM("asm/outroe/nonmatchings/1AC9CC", FlushCache);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1AC9CC", func_801BCB74);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AC9CC", func_801BCCEC);
+extern volatile s32 D_801CD78C;
+
+void v_wait(s32 arg0, s32 arg1) {
+    volatile s32 sp10 = arg1 << 15;
+    while (D_801CD78C < arg0) {
+        if (--sp10 == -1) {
+            puts("VSync: timeout\n");
+            ChangeClearPAD(0);
+            ChangeClearRCnt(3, 0);
+            return;
+        }
+    }
+}
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1AC9CC", ChangeClearPAD);
 
