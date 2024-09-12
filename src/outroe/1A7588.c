@@ -84,7 +84,7 @@ INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B8970);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B89C0);
 
-void func_801B8A44(s32* buf, s32 arg1, s16 x, s16 y, s32 w, s32 h) {
+void func_801B8A44(s32* buf, s32 arg1, s32 x, s32 y, s32 w, s32 h) {
     RECT r;
 
     if (arg1 == 0) {
