@@ -180,7 +180,12 @@ INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801C1C3C);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801C1C50);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", DecDCTReset);
+void DecDCTReset(s32 arg0) {
+    if (arg0 == 0) {
+        func_801BCDA4();
+    }
+    func_801C1F34(arg0);
+}
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", DecDCTGetEnv);
 
@@ -212,7 +217,34 @@ INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", DecDCTinCallback);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", DecDCToutCallback);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801C1F34);
+extern s32 D_801CDCAC;
+extern s32 D_801CDD30;
+extern s32* D_801CDDC4;
+extern volatile s32* D_801CDDD0;
+extern s32* D_801CDDF0;
+
+void func_801C1F34(s32 arg0) {
+    switch (arg0) {
+    case 0:
+        *D_801CDDF0 = 0x80000000;
+        *D_801CDDC4 = 0;
+        *D_801CDDD0 = 0;
+        *D_801CDDF0 = 0x60000000;
+        func_801C2024(&D_801CDCAC, 0x20);
+        func_801C2024(&D_801CDD30, 0x20);
+        return;
+    case 1:
+        *D_801CDDF0 = 0x80000000;
+        *D_801CDDC4 = 0;
+        *D_801CDDD0 = 0;
+        *D_801CDDD0;
+        *D_801CDDF0 = 0x60000000;
+        return;
+    default:
+        printf("MDEC_rest:bad option(%d)\n", arg0);
+        return;
+    }
+}
 
 extern s32* D_801CDDBC;
 extern s32* D_801CDDC0;
