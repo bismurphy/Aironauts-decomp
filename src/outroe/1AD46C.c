@@ -188,7 +188,21 @@ INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", DecDCTPutEnv);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", DecDCTBufSize);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", DecDCTin);
+extern void func_801C2024(s32*, u16);
+
+void DecDCTin(s32* arg0, s32 arg1) {
+    if (arg1 & 1) {
+        *arg0 &= 0xF7FFFFFF;
+    } else {
+        *arg0 |= 0x08000000;
+    }
+    if (arg1 & 2) {
+        *arg0 |= 0x02000000;
+    } else {
+        *arg0 &= 0xFDFFFFFF;
+    }
+    func_801C2024(arg0, *arg0);
+}
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", DecDCTout);
 

@@ -75,13 +75,13 @@ $(BUILD_DIR)/%.s.o: %.s
 	mkdir -p $(dir $@)
 	$(AS) $(AS_FLAGS) -o $@ $<
 
-$(BUILD_DIR)/%.c.o: %.c $(MENOSPSX_APP) $(CC1PSX)
-	mkdir -p $(dir $@)
-	$(CPP) $(CPP_FLAGS) -lang-c $< | $(CC) $(CC_FLAGS) $(PSXCC_FLAGS) | $(MENOSPSX) | $(AS) $(AS_FLAGS) -o $@
+# Object files that need to be built with $(CC27) instead of $(CC)
+NEEDS_GCC_27 = $(BUILD_DIR)/src/outroe/1AC9CC.c.o $(BUILD_DIR)/src/outroe/1AD46C.c.o
 
-$(BUILD_DIR)/src/outroe/1AC9CC.c.o: src/outroe/1AC9CC.c $(MENOSPSX_APP) $(CC1PSX)
+# Rule to build object files
+$(BUILD_DIR)/%.c.o: %.c $(MENOSPSX_APP)
 	mkdir -p $(dir $@)
-	$(CPP) $(CPP_FLAGS) -lang-c $< | $(CC27) $(CC_FLAGS) $(PSXCC_FLAGS) | $(MENOSPSX) | $(AS) $(AS_FLAGS) -o $@
+	$(CPP) $(CPP_FLAGS) -lang-c $< | $(if $(filter $@,$(NEEDS_GCC_27)),$(CC27),$(CC)) $(CC_FLAGS) $(PSXCC_FLAGS) | $(MENOSPSX) | $(AS) $(AS_FLAGS) -o $@
 
 # putting this in causes make to not delete the intermediate .o files.
 SECONDARY: $(call list_o_files,outroe)
