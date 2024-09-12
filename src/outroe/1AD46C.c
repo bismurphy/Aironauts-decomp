@@ -209,7 +209,9 @@ void DecDCTin(s32* arg0, s32 arg1) {
     func_801C2024(arg0, *(u16*)arg0);
 }
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", DecDCTout);
+void DecDCTout(void) {
+    func_801C20B4();
+}
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", DecDCTinSync);
 
@@ -251,7 +253,11 @@ void func_801C1F34(s32 arg0) {
 extern s32* D_801CDDBC;
 extern s32* D_801CDDC0;
 extern s32* D_801CDDC4;
+extern s32* D_801CDDC8;
+extern s32* D_801CDDCC;
+extern s32* D_801CDDD0;
 extern s32* D_801CDDEC;
+extern volatile s32* D_801CDDF0;
 extern s32* D_801CDDF4;
 
 void func_801C2024(s32* arg0, u32 arg1) {
@@ -263,9 +269,15 @@ void func_801C2024(s32* arg0, u32 arg1) {
     *D_801CDDC4 = 0x01000201;
 }
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801C20B4);
+void func_801C20B4(s32 arg0, u32 arg1) {
+    func_801C21D4();
+    *D_801CDDF4 |= 0x88;
+    *D_801CDDD0 = 0;
+    *D_801CDDC8 = arg0;
+    *D_801CDDCC = ((arg1 >> 5) << 0x10) | 0x20;
+    *D_801CDDD0 = 0x01000200;
+}
 
-extern volatile s32* D_801CDDF0;
 
 s32 MDEC_in_sync(void) {
     volatile s32 sp10 = 0x100000;
@@ -278,7 +290,16 @@ s32 MDEC_in_sync(void) {
     return 0;
 }
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801C21D4);
+s32 func_801C21D4(void) {
+    volatile s32 sp10 = 0x100000;
+    while (*D_801CDDD0 & 0x01000000) {
+        if (--sp10 == -1) {
+            MDEC_print_error("MDEC_out_sync");
+            return -1;
+        }
+    }
+    return 0;
+}
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801C2268);
 
