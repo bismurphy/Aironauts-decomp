@@ -1,4 +1,4 @@
-#include "common.h"
+#include "outroe.h"
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", _96_remove);
 
@@ -191,7 +191,9 @@ INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", DecDCTGetEnv);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", DecDCTPutEnv);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", DecDCTBufSize);
+s32 DecDCTBufSize(u16* data) {
+    return *data;
+}
 
 void DecDCTin(s32* arg0, s32 arg1) {
     if (arg1 & 1) {
