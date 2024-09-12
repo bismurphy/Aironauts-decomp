@@ -188,8 +188,6 @@ INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", DecDCTPutEnv);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", DecDCTBufSize);
 
-extern void func_801C2024(s32*, u16);
-
 void DecDCTin(s32* arg0, s32 arg1) {
     if (arg1 & 1) {
         *arg0 &= 0xF7FFFFFF;
@@ -201,7 +199,7 @@ void DecDCTin(s32* arg0, s32 arg1) {
     } else {
         *arg0 &= 0xFDFFFFFF;
     }
-    func_801C2024(arg0, *arg0);
+    func_801C2024(arg0, *(u16*)arg0);
 }
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", DecDCTout);
@@ -216,7 +214,20 @@ INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", DecDCToutCallback);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801C1F34);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801C2024);
+extern s32* D_801CDDBC;
+extern s32* D_801CDDC0;
+extern s32* D_801CDDC4;
+extern s32* D_801CDDEC;
+extern s32* D_801CDDF4;
+
+void func_801C2024(s32* arg0, u32 arg1) {
+    func_801C2140();
+    *D_801CDDF4 |= 0x88;
+    *D_801CDDBC = arg0 + 1;
+    *D_801CDDC0 = ((arg1 >> 5) << 0x10) | 0x20;
+    *D_801CDDEC = *arg0;
+    *D_801CDDC4 = 0x01000201;
+}
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1AD46C", func_801C20B4);
 
