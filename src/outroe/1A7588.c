@@ -84,7 +84,21 @@ INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B8970);
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B89C0);
 
-INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B8A44);
+void func_801B8A44(s32* buf, s32 arg1, s16 x, s16 y, s32 w, s32 h) {
+    RECT r;
+
+    if (arg1 == 0) {
+        w >>= 2;
+    } else if (arg1 == 1) {
+        w >>= 1;
+    }
+    r.x = x;
+    r.y = y;
+    r.w = w;
+    r.h = h;
+    LoadImage(&r, buf);
+    DrawSync(0);
+}
 
 INCLUDE_ASM("asm/outroe/nonmatchings/1A7588", func_801B8AA8);
 
