@@ -16,8 +16,7 @@ CPP             := $(CROSS)cpp
 CPP_FLAGS       += -Iinclude -undef -Wall -fno-builtin
 CPP_FLAGS       += -Dmips -D__GNUC__=2 -D__OPTIMIZE__ -D__mips__ -D__mips -Dpsx -D__psx__ -D__psx -D_PSYQ -D__EXTENSIONS__ -D_MIPSEL -D_LANGUAGE_C -DLANGUAGE_C -DNO_LOGS -DHACKS -DUSE_INCLUDE_ASM
 
-CC1PSX          := ./bin/cc1-gcc2.8.1-psx
-CC              := $(CC1PSX)
+CC28          := ./bin/cc1-gcc2.8.1-psx
 CC27            := ./bin/cc1-gcc2.7.2-psx
 CC_FLAGS        += -G0 -w -O2 -funsigned-char -fpeephole -ffunction-cse -fpcc-struct-return -fcommon -fverbose-asm -msoft-float -g
 PSXCC_FLAGS     := -quiet -mcpu=3000 -fgnu-linker -mgas -gcoff
@@ -75,13 +74,14 @@ $(BUILD_DIR)/%.s.o: %.s
 	mkdir -p $(dir $@)
 	$(AS) $(AS_FLAGS) -o $@ $<
 
-# Object files that need to be built with $(CC27) instead of $(CC)
+# Object files that need to be built with GCC 2.7 instead of GCC 2.8
 NEEDS_GCC_27 = $(BUILD_DIR)/src/outroe/1AC9CC.c.o $(BUILD_DIR)/src/outroe/1AD46C.c.o
+CC = $(if $(filter $@,$(NEEDS_GCC_27)), $(CC27), $(CC28))
 
 # Rule to build object files
 $(BUILD_DIR)/%.c.o: %.c $(MENOSPSX_APP)
 	mkdir -p $(dir $@)
-	$(CPP) $(CPP_FLAGS) -lang-c $< | $(if $(filter $@,$(NEEDS_GCC_27)),$(CC27),$(CC)) $(CC_FLAGS) $(PSXCC_FLAGS) | $(MENOSPSX) | $(AS) $(AS_FLAGS) -o $@
+	$(CPP) $(CPP_FLAGS) -lang-c $< | $(CC) $(CC_FLAGS) $(PSXCC_FLAGS) | $(MENOSPSX) | $(AS) $(AS_FLAGS) -o $@
 
 # putting this in causes make to not delete the intermediate .o files.
 SECONDARY: $(call list_o_files,outroe)
